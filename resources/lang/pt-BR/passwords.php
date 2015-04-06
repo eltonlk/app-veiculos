@@ -12,14 +12,16 @@ return [
   | has failed, such as for an invalid token or invalid new password.
   |
   */
-  "password" => "A senha deverá conter pelo menos seis carateres e ser igual à confirmação.",
+  "password"             => "A senha deverá conter pelo menos seis carateres e ser igual à confirmação.",
 
-  "user"     => "Não conseguimos encontrar nenhum usuário com o endereço de email indicado.",
+  "user"                 => "Não conseguimos encontrar nenhum usuário com o endereço de email indicado.",
 
-  "token"    => "Este código de recuperação da senha é inválido.",
+  "token"                => "Este código de recuperação da senha é inválido.",
 
-  "sent"     => "O lembrete da senha foi enviado!",
+  "sent"                 => "O lembrete da senha foi enviado!",
 
-  "reset"    => "A senha foi redefinida!",
+  "reset"                => "A senha foi redefinida!",
+
+  "forgot_your_password" => "Esqueceu sua senha?",
 
 ];

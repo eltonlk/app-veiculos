@@ -1,59 +1,39 @@
-@extends('app')
+@extends('layouts.site')
 
 @section('content')
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<div class="panel panel-default">
-				<div class="panel-heading">Reset Password</div>
-				<div class="panel-body">
-					@if (count($errors) > 0)
-						<div class="alert alert-danger">
-							<strong>Whoops!</strong> There were some problems with your input.<br><br>
-							<ul>
-								@foreach ($errors->all() as $error)
-									<li>{{ $error }}</li>
-								@endforeach
-							</ul>
-						</div>
-					@endif
+  <div class="container-fluid">
+  	<div class="row">
+  		<div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+  			<div class="panel panel-default">
+  				<div class="panel-heading">{{ trans('auth.reset.title') }}</div>
+  				<div class="panel-body">
+            @include('layouts.validation')
 
-					<form class="form-horizontal" role="form" method="POST" action="{{ url('/password/reset') }}">
-						<input type="hidden" name="_token" value="{{ csrf_token() }}">
-						<input type="hidden" name="token" value="{{ $token }}">
+            {!! Form::open(array('url' => '/password/reset', 'method' => 'post', 'class' => 'form')) !!}
+              {!! Form::hidden('token') !!}
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">E-Mail Address</label>
-							<div class="col-md-6">
-								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
-							</div>
-						</div>
+              <div class="form-group">
+                {!! Form::label('email') !!}
+                {!! Form::email('email', null, array('class'=>'form-control')) !!}
+              </div>
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">Password</label>
-							<div class="col-md-6">
-								<input type="password" class="form-control" name="password">
-							</div>
-						</div>
+              <div class="form-group">
+                {!! Form::label('password') !!}
+                {!! Form::password('password', array('class'=>'form-control')) !!}
+              </div>
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">Confirm Password</label>
-							<div class="col-md-6">
-								<input type="password" class="form-control" name="password_confirmation">
-							</div>
-						</div>
+              <div class="form-group">
+                {!! Form::label('password_confirmation') !!}
+                {!! Form::password('password_confirmation', array('class'=>'form-control')) !!}
+              </div>
 
-						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="btn btn-primary">
-									Reset Password
-								</button>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+              <div class="form-group">
+                {!! Form::submit(trans('auth.reset.submit'), array('class'=>'btn btn-primary')) !!}
+              </div>
+            {!! Form::close() !!}
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+  </div>
 @endsection
