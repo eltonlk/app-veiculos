@@ -104,6 +104,7 @@ return [
 
     'attributes' => [
       'email'    => 'Email',
+      'name'     => 'Nome',
       'password' => 'Senha',
       'remember' => 'Lembrar de mim',
     ],

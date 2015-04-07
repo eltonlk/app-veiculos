@@ -32,6 +32,8 @@
   			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
   				<ul class="nav navbar-nav">
   					<li><a href="{{ url('/dashboard') }}">{{ trans('app.dashboard') }}</a></li>
+            <li><a href="{{ url('/vehicle_kinds') }}">{{ trans('app.vehicle_kinds') }}</a></li>
+            <li><a href="{{ url('/vehicle_brands') }}">{{ trans('app.vehicle_brands') }}</a></li>
   				</ul>
 
   				<ul class="nav navbar-nav navbar-right">

@@ -10,4 +10,13 @@ class Account extends Model {
 
 	protected $hidden = [];
 
+  public function vehicle_brands()
+  {
+    return $this->hasMany('App\VehicleBrand');
+  }
+
+  public function vehicle_kinds()
+  {
+    return $this->hasMany('App\VehicleKind');
+  }
 }

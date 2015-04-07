@@ -54,7 +54,7 @@ return [
 	|
 	*/
 
-	'from' => ['address' => null, 'name' => null],
+	'from' => ['address' => 'contato@app_veiculos.com.br', 'name' => 'Contato'],
 
 	/*
 	|--------------------------------------------------------------------------
