@@ -1,15 +1,22 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests\VehicleKindRequest;
+use App\Repositories\VehicleKindRepository;
 use App\VehicleKind;
 use Auth;
 use Redirect;
 
 class VehicleKindsController extends AppController {
 
+  public function __construct(VehicleKindRepository $repository)
+  {
+    $this->repository = $repository;
+    $this->middleware('auth');
+  }
+
 	public function index()
 	{
-		$vehicle_kinds = Auth::user()->account->vehicle_kinds;
+    $vehicle_kinds = $this->repository->all();
 
 		return view('vehicle_kinds.index', compact('vehicle_kinds'));
 	}
@@ -34,14 +41,14 @@ class VehicleKindsController extends AppController {
 
 	public function edit($id)
 	{
-		$vehicle_kind = VehicleKind::findOrFail($id);
+		$vehicle_kind = $this->repository->find($id);
 
 		return view('vehicle_kinds.edit', compact('vehicle_kind'));
 	}
 
 	public function update(VehicleKindRequest $request, $id)
 	{
-		$vehicle_kind = VehicleKind::findOrFail($id);
+		$vehicle_kind = $this->repository->find($id);
 		$vehicle_kind->update($request->all());
 
     flash()->success(trans('vehicle_kinds.messages.update', [ 'name' => $vehicle_kind->name ]));
@@ -51,7 +58,7 @@ class VehicleKindsController extends AppController {
 
 	public function destroy($id)
 	{
-		$vehicle_kind = VehicleKind::findOrFail($id);
+		$vehicle_kind = $this->repository->find($id);
 		$vehicle_kind->delete();
 
     flash()->success(trans('vehicle_kinds.messages.destroy', [ 'name' => $vehicle_kind->name ]));
