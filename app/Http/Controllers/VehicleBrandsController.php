@@ -1,25 +1,15 @@
 <?php namespace App\Http\Controllers;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
-
-use Illuminate\Http\Request;
-
-use App\Account;
+use App\Http\Requests\VehicleKindRequest;
 use App\VehicleBrand;
-use Input;
+use Auth;
 use Redirect;
 
-class VehicleBrandsController extends Controller {
-
-	public function __construct()
-	{
-		$this->middleware('auth');
-	}
+class VehicleBrandsController extends AppController {
 
 	public function index()
 	{
-		$vehicle_brands = VehicleBrand::all();
+		$vehicle_brands = Auth::user()->account->vehicle_brands;
 
 		return view('vehicle_brands.index', compact('vehicle_brands'));
 	}
@@ -31,52 +21,41 @@ class VehicleBrandsController extends Controller {
 		return view('vehicle_brands.create', compact('vehicle_brand'));
 	}
 
-		public function store(Request $request)
+	public function store(VehicleKindRequest $request)
 	{
-		$this->validate($request, [
-			'name' => ['required'],
-		]);
-
-		$input = Input::all();
-
-		$vehicle_brand = new VehicleBrand($input);
-		$vehicle_brand->account_id = Account::first()->id;
+		$vehicle_brand = new VehicleBrand($request->all());
+		$vehicle_brand->account_id = Auth::user()->account_id;
 		$vehicle_brand->save();
 
-		return Redirect::route('vehicle_brands.index')
-			->with('message', trans('vehicle_brands.messages.store'));
+    flash()->success(trans('vehicle_brands.messages.store', [ 'name' => $vehicle_brand->name ]));
+
+		return Redirect::route('vehicle_brands.index');
 	}
 
 	public function edit($id)
 	{
-		$vehicle_brand = VehicleBrand::find($id);
+		$vehicle_brand = VehicleBrand::findOrFail($id);
 
 		return view('vehicle_brands.edit', compact('vehicle_brand'));
 	}
 
-	public function update($id, Request $request)
+	public function update(VehicleKindRequest $request, $id)
 	{
-		$this->validate($request, [
-			'name' => ['required'],
-		]);
+		$vehicle_brand = VehicleBrand::findOrFail($id);
+		$vehicle_brand->update($request->all());
 
-		$input = Input::all();
+    flash()->success(trans('vehicle_brands.messages.update', [ 'name' => $vehicle_brand->name ]));
 
-		$vehicle_brand = VehicleBrand::find($id);
-
-		$vehicle_brand->update($input);
-
-		return Redirect::route('vehicle_brands.index')
-			->with('message', trans('vehicle_brands.messages.update'));
+		return Redirect::route('vehicle_brands.index');
 	}
 
 	public function destroy($id)
 	{
-		$vehicle_brand = VehicleBrand::find($id);
-
+		$vehicle_brand = VehicleBrand::findOrFail($id);
 		$vehicle_brand->delete();
 
-		return Redirect::route('vehicle_brands.index')
-			->with('message', trans('vehicle_brands.messages.destroy'));
+    flash()->success(trans('vehicle_brands.messages.destroy', [ 'name' => $vehicle_brand->name ]));
+
+		return Redirect::route('vehicle_brands.index');
 	}
 }

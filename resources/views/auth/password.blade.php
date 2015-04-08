@@ -17,7 +17,7 @@
 
             {!! Form::open(array('url' => '/password/email', 'method' => 'post', 'class' => 'form')) !!}
               <div class="form-group">
-                {!! Form::label('email') !!}
+                {!! Form::label('email', trans('validation.attributes.email')) !!}
                 {!! Form::email('email', null, array('class'=>'form-control')) !!}
               </div>
 

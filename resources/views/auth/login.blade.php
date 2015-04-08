@@ -11,18 +11,18 @@
 
             {!! Form::open(array('url' => '/auth/login', 'method' => 'post', 'class' => 'form')) !!}
               <div class="form-group">
-                {!! Form::label('email') !!}
+                {!! Form::label('email', trans('validation.attributes.email')) !!}
                 {!! Form::email('email', null, array('class'=>'form-control')) !!}
               </div>
 
               <div class="form-group">
-                {!! Form::label('password') !!}
+                {!! Form::label('password', trans('validation.attributes.password')) !!}
                 {!! Form::password('password', array('class'=>'form-control')) !!}
               </div>
 
               <div class="form-group">
                 {!! Form::checkbox('remember', 1, false) !!}
-                {!! Form::label('remember') !!}
+                {!! Form::label('remember', trans('validation.attributes.remember')) !!}
               </div>
 
               <div class="form-group">

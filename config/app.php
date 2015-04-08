@@ -149,6 +149,7 @@ return [
      * Packages Service Providers
      */
     'Collective\Html\HtmlServiceProvider',
+    'Laracasts\Flash\FlashServiceProvider',
 	],
 
 	/*
@@ -200,8 +201,9 @@ return [
     /*
      * Packages Aliases
      */
-    'Form' => 'Collective\Html\FormFacade',
-    'Html' => 'Collective\Html\HtmlFacade',
+    'Form'  => 'Collective\Html\FormFacade',
+    'Html'  => 'Collective\Html\HtmlFacade',
+    'Flash' => 'Laracasts\Flash\Flash',
 	],
 
 ];

@@ -16,11 +16,11 @@
   	<![endif]-->
   </head>
   <body>
-  	<nav class="navbar navbar-default">
-  		<div class="container-fluid">
+  	<nav class="navbar navbar-inverse">
+  		<div class="container">
   			<div class="navbar-header">
   				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-  					<span class="sr-only">{{ trans('toggle_navigation') }}</span>
+  					<span class="sr-only">{{ trans('text.toggle_navigation') }}</span>
   					<span class="icon-bar"></span>
   					<span class="icon-bar"></span>
   					<span class="icon-bar"></span>
@@ -48,7 +48,17 @@
   		</div>
   	</nav>
 
-  	@yield('content')
+    <div class="container">
+      @include('flash::message')
+
+      <div class="page-header">
+        <h1>
+           @yield('title')
+        </h1>
+      </div>
+
+      @yield('content')
+    </div>
 
   	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
