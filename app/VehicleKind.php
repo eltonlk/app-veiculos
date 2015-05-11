@@ -11,7 +11,7 @@ class VehicleKind extends Model {
 
   protected $fillable = ['name'];
 
-  protected $hidden = [];
+  protected $hidden = ['id', 'deleted_at'];
 
   protected $dates = ['deleted_at'];
 

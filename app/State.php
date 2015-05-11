@@ -3,21 +3,21 @@
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class VehicleBrand extends Model {
+class State extends Model {
 
   use SoftDeletes;
 
-  protected $table = 'vehicle_brands';
+  protected $table = 'states';
 
-  protected $fillable = ['name'];
+  protected $fillable = ['name', 'abbr'];
 
   protected $hidden = ['id', 'deleted_at'];
 
   protected $dates = ['deleted_at'];
 
-  public function account()
+  public function cities()
   {
-    return $this->belongsTo('App\Account');
+    return $this->hasMany('App\City');
   }
 
 }

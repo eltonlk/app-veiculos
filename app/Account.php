@@ -6,9 +6,19 @@ class Account extends Model {
 
 	protected $table = 'accounts';
 
-	protected $fillable = [];
+	protected $fillable = ['name', 'state_id', 'city_id', 'zip', 'district', 'address', 'email', 'phone'];
 
-	protected $hidden = [];
+	protected $hidden = ['id'];
+
+  public function city()
+  {
+    return $this->belongsTo('App\City');
+  }
+
+  public function state()
+  {
+    return $this->belongsTo('App\State');
+  }
 
   public function vehicle_brands()
   {

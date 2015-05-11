@@ -3,11 +3,11 @@
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class VehicleBrand extends Model {
+class City extends Model {
 
   use SoftDeletes;
 
-  protected $table = 'vehicle_brands';
+  protected $table = 'cities';
 
   protected $fillable = ['name'];
 
@@ -15,9 +15,9 @@ class VehicleBrand extends Model {
 
   protected $dates = ['deleted_at'];
 
-  public function account()
+  public function state()
   {
-    return $this->belongsTo('App\Account');
+    return $this->belongsTo('App\State');
   }
 
 }

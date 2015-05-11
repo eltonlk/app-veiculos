@@ -3,6 +3,7 @@
 return [
 
   'dashboard'      => 'Painel',
+  'entries'        => 'Cadastros',
   'login'          => 'Login',
   'logout'         => 'Sair',
   'name'           => 'App Veículos',
