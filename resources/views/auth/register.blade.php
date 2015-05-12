@@ -5,7 +5,9 @@
   	<div class="row">
   		<div class="col-md-4 col-md-offset-4">
   			<div class="panel panel-default">
-  				<div class="panel-heading">{{ trans('auth.register.title') }}</div>
+  				<div class="panel-heading">
+            <h3 class="panel-title">{{ trans('auth.register.title') }}</h3>
+          </div>
   				<div class="panel-body">
             @include('layouts.validation')
 
@@ -31,6 +33,50 @@
                   <div class="form-group">
                     {!! Form::label('password_confirmation', trans('validation.attributes.password_confirmation')) !!}
                     {!! Form::password('password_confirmation', array('class'=>'form-control')) !!}
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                {!! Form::label('address', trans('validation.attributes.address')) !!}
+                {!! Form::text('address', null, array('class'=>'form-control')) !!}
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    {!! Form::label('state_id', trans('validation.attributes.state_id')) !!}
+                    {!! Form::select('state_id', App\State::optionsForSelect(), null, array('class'=>'form-control')) !!}
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    {!! Form::label('city_id', trans('validation.attributes.city_id')) !!}
+                    {!! Form::select('city_id', App\City::optionsForSelect(old('state_id')), null, array('class'=>'form-control')) !!}
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    {!! Form::label('zip', trans('validation.attributes.zip')) !!}
+                    {!! Form::text('zip', null, array('class'=>'form-control')) !!}
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    {!! Form::label('district', trans('validation.attributes.district')) !!}
+                    {!! Form::text('district', null, array('class'=>'form-control')) !!}
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    {!! Form::label('phone', trans('validation.attributes.phone')) !!}
+                    {!! Form::text('phone', null, array('class'=>'form-control')) !!}
                   </div>
                 </div>
               </div>

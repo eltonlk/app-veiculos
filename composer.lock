@@ -4,8 +4,55 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e5a4319b9d897eea1d5c8b1cba2d4d93",
+    "hash": "d055bd4ac6c8364199a3431eec2852b1",
     "packages": [
+        {
+            "name": "bosnadev/repositories",
+            "version": "0.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Bosnadev/Repositories.git",
+                "reference": "c4eb564902a58bdbb8047f09da591f6177c39c6a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Bosnadev/Repositories/zipball/c4eb564902a58bdbb8047f09da591f6177c39c6a",
+                "reference": "c4eb564902a58bdbb8047f09da591f6177c39c6a",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "5.*",
+                "illuminate/support": "5.*",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bosnadev\\Repositories\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Mirza Pasic",
+                    "email": "mirza.pasic@edu.fit.ba"
+                }
+            ],
+            "description": "Laravel Repositories",
+            "keywords": [
+                "database",
+                "eloquent",
+                "laravel",
+                "repositories",
+                "repository"
+            ],
+            "time": "2015-04-20 12:10:57"
+        },
         {
             "name": "classpreloader/classpreloader",
             "version": "1.3.0",
@@ -453,16 +500,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "5.0.30",
+            "version": "v5.0.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "c7ffbf1fd4895ac4cdac551265d635d995346d97"
+                "reference": "db0a7400465df159ba8c6eaa954f97f50bc19687"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/c7ffbf1fd4895ac4cdac551265d635d995346d97",
-                "reference": "c7ffbf1fd4895ac4cdac551265d635d995346d97",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/db0a7400465df159ba8c6eaa954f97f50bc19687",
+                "reference": "db0a7400465df159ba8c6eaa954f97f50bc19687",
                 "shasum": ""
             },
             "require": {
@@ -575,7 +622,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-05-08 19:11:13"
+            "time": "2015-05-11 22:15:00"
         },
         {
             "name": "laravelcollective/html",

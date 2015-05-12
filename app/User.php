@@ -6,13 +6,15 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
+use App\Traits\TenantableTrait;
+
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
-	use Authenticatable, CanResetPassword;
+	use Authenticatable, CanResetPassword, TenantableTrait;
 
 	protected $table = 'users';
 
-	protected $fillable = ['name', 'email', 'password', 'admin', 'account_id'];
+	protected $fillable = ['name', 'state_id', 'city_id', 'zip', 'district', 'address', 'phone', 'email', 'password'];
 
 	protected $hidden = ['password', 'remember_token'];
 
@@ -20,4 +22,14 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	{
 		return $this->belongsTo('App\Account');
 	}
+
+  public function city()
+  {
+    return $this->belongsTo('App\City');
+  }
+
+  public function state()
+  {
+    return $this->belongsTo('App\State');
+  }
 }

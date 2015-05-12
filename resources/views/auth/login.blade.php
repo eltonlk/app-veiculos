@@ -5,7 +5,9 @@
   	<div class="row">
   		<div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
   			<div class="panel panel-default">
-  				<div class="panel-heading">{{ trans('auth.login.title') }}</div>
+  				<div class="panel-heading">
+            <h3 class="panel-title">{{ trans('auth.login.title') }}</h3>
+          </div>
   				<div class="panel-body">
             @include('layouts.validation')
 
@@ -21,8 +23,10 @@
               </div>
 
               <div class="form-group">
-                {!! Form::checkbox('remember', 1, false) !!}
-                {!! Form::label('remember', trans('validation.attributes.remember')) !!}
+                <label>
+                  {!! Form::checkbox('remember', 1, false) !!}
+                  {!! trans('validation.attributes.remember') !!}
+                </label>
               </div>
 
               <div class="form-group">

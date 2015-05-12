@@ -13,9 +13,9 @@ return [
   ],
   'messages' => [
     'empty'   => 'Nenhum tipo foi encontrado.',
-    'store'   => 'Tipo ":name" foi adicionado.',
-    'update'  => 'Tipo ":name" foi atualizado.',
-    'destroy' => 'Tipo ":name" foi excluído.',
+    'store'   => 'Tipo foi adicionado.',
+    'update'  => 'Tipo foi atualizado.',
+    'destroy' => 'Tipo foi excluído.',
   ]
 
 ];

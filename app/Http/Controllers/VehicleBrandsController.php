@@ -1,14 +1,14 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests\VehicleBrandRequest;
-use App\Repositories\VehicleBrandRepository;
+use App\Repositories\VehicleBrandsRepository;
 use App\VehicleBrand;
 use Auth;
 use Redirect;
 
 class VehicleBrandsController extends AppController {
 
-  public function __construct(VehicleBrandRepository $repository)
+  public function __construct(VehicleBrandsRepository $repository)
   {
     $this->repository = $repository;
     $this->middleware('auth');
@@ -30,11 +30,9 @@ class VehicleBrandsController extends AppController {
 
 	public function store(VehicleBrandRequest $request)
 	{
-		$vehicle_brand = new VehicleBrand($request->all());
-		$vehicle_brand->account_id = Auth::user()->account_id;
-		$vehicle_brand->save();
+    $this->repository->create($request->all());
 
-    flash()->success(trans('vehicle_brands.messages.store', [ 'name' => $vehicle_brand->name ]));
+    flash()->success(trans('vehicle_brands.messages.store'));
 
 		return Redirect::route('vehicle_brands.index');
 	}
@@ -48,20 +46,18 @@ class VehicleBrandsController extends AppController {
 
 	public function update(VehicleBrandRequest $request, $id)
 	{
-		$vehicle_brand = $this->repository->find($id);
-		$vehicle_brand->update($request->all());
+    $this->repository->updateRich($request->all(), $id);
 
-    flash()->success(trans('vehicle_brands.messages.update', [ 'name' => $vehicle_brand->name ]));
+    flash()->success(trans('vehicle_brands.messages.update'));
 
 		return Redirect::route('vehicle_brands.index');
 	}
 
 	public function destroy($id)
 	{
-		$vehicle_brand = $this->repository->find($id);
-		$vehicle_brand->delete();
+    $this->repository->delete($id);
 
-    flash()->success(trans('vehicle_brands.messages.destroy', [ 'name' => $vehicle_brand->name ]));
+    flash()->success(trans('vehicle_brands.messages.destroy'));
 
 		return Redirect::route('vehicle_brands.index');
 	}

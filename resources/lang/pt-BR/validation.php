@@ -103,11 +103,18 @@ return [
   */
 
   'attributes' => [
+    'abbr'                  => 'Abreviatura',
+    'address'               => 'Endereço',
+    'city_id'               => 'Cidade',
+    'district'              => 'Bairro',
     'email'                 => 'Email',
     'name'                  => 'Nome',
     'password'              => 'Senha',
     'password_confirmation' => 'Repita sua senha',
+    'phone'                 => 'Telefone',
     'remember'              => 'Lembrar de mim',
+    'state_id'              => 'Estado',
+    'zip'                   => 'CEP',
   ],
 
   'title' => 'Verifique os erros abaixo:',

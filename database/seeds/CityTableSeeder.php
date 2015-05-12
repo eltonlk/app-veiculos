@@ -15,7 +15,9 @@ class CityTableSeeder extends Seeder {
     foreach($reader as $index => $row)
     {
       if (isset($row[1]) and isset($row[2]) and isset($row[3])) {
-        $city = new City(['name' => $row[3], 'state_id' => $row[1]]);
+        $name = ucfirst(mb_strtolower($row[3], 'UTF-8'));
+
+        $city = new City(['name' => $name, 'state_id' => $row[1]]);
         $city->id = $row[2];
         $city->save();
       }

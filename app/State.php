@@ -11,13 +11,18 @@ class State extends Model {
 
   protected $fillable = ['name', 'abbr'];
 
-  protected $hidden = ['id', 'deleted_at'];
+  protected $hidden = [];
 
   protected $dates = ['deleted_at'];
 
   public function cities()
   {
     return $this->hasMany('App\City');
+  }
+
+  public function scopeOptionsForSelect($query)
+  {
+    return array('' => trans('text.prompt')) + $query->orderBy('name')->lists('name','id');
   }
 
 }

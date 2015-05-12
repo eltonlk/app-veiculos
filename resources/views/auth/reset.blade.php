@@ -5,7 +5,9 @@
   	<div class="row">
   		<div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
   			<div class="panel panel-default">
-  				<div class="panel-heading">{{ trans('auth.reset.title') }}</div>
+  				<div class="panel-heading">
+            <h3 class="panel-title">{{ trans('auth.reset.title') }}</h3>
+          </div>
   				<div class="panel-body">
             @include('layouts.validation')
 

@@ -11,13 +11,22 @@ class City extends Model {
 
   protected $fillable = ['name'];
 
-  protected $hidden = ['id', 'deleted_at'];
+  protected $hidden = [];
 
   protected $dates = ['deleted_at'];
 
   public function state()
   {
     return $this->belongsTo('App\State');
+  }
+
+  public function scopeOptionsForSelect($query, $state_id)
+  {
+    if (isset($state_id) and !empty($state_id)) {
+      return array('' => trans('text.prompt')) + $query->whereStateId($state_id)->orderBy('name')->lists('name','id');
+    } else {
+      return array('' => trans('cities.text.prompt'));
+    }
   }
 
 }

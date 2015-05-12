@@ -42,6 +42,8 @@ class Authenticate {
 			{
 				return redirect()->guest('auth/login');
 			}
+		} else {
+      $this->auth->user()->account->setCurrent();
 		}
 
 		return $next($request);

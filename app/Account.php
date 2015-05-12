@@ -1,6 +1,7 @@
 <?php namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Session;
 
 class Account extends Model {
 
@@ -8,7 +9,7 @@ class Account extends Model {
 
 	protected $fillable = ['name', 'state_id', 'city_id', 'zip', 'district', 'address', 'email', 'phone'];
 
-	protected $hidden = ['id'];
+	protected $hidden = [];
 
   public function city()
   {
@@ -20,13 +21,20 @@ class Account extends Model {
     return $this->belongsTo('App\State');
   }
 
-  public function vehicle_brands()
+  // Multitenant Methods
+  public function setCurrent()
   {
-    return $this->hasMany('App\VehicleBrand');
+    Account::setCurrentId($this->id);
   }
 
-  public function vehicle_kinds()
+  public static function setCurrentId($id)
   {
-    return $this->hasMany('App\VehicleKind');
+    Session::set('accountId', $id);
   }
+
+  public static function getCurrent()
+  {
+    return static::find(Session::get('accountId'));
+  }
+
 }
