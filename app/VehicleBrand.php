@@ -22,4 +22,9 @@ class VehicleBrand extends Model {
     return $this->belongsTo('App\Account');
   }
 
+  public function scopeOptionsForSelect($query)
+  {
+    return $query->orderBy('name')->lists('name','id');
+  }
+
 }

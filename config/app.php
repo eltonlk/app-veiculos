@@ -202,9 +202,10 @@ return [
     /*
      * Packages Aliases
      */
-    'Form'  => 'Collective\Html\FormFacade',
-    'Html'  => 'Collective\Html\HtmlFacade',
-    'Flash' => 'Laracasts\Flash\Flash',
+    'Carbon' => 'Carbon\Carbon',
+    'Form'   => 'Collective\Html\FormFacade',
+    'Html'   => 'Collective\Html\HtmlFacade',
+    'Flash'  => 'Laracasts\Flash\Flash',
 	],
 
 ];

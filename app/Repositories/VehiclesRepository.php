@@ -2,11 +2,11 @@
 
 use Bosnadev\Repositories\Eloquent\Repository;
 
-class UsersRepository extends Repository {
+class VehiclesRepository extends Repository {
 
   public function model()
   {
-    return 'App\User';
+    return 'App\Vehicle';
   }
 
 }

@@ -40,6 +40,7 @@
                 <span class="caret"></span>
               </a>
               <ul class="dropdown-menu" role="menu">
+                <li><a href="{{ url('/vehicles') }}">{{ trans('app.vehicles') }}</a></li>
                 <li><a href="{{ url('/vehicle_kinds') }}">{{ trans('app.vehicle_kinds') }}</a></li>
                 <li><a href="{{ url('/vehicle_brands') }}">{{ trans('app.vehicle_brands') }}</a></li>
               </ul>

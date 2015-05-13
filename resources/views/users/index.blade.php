@@ -7,23 +7,25 @@
 
   <br><br>
 
-  @if ( !$users->count() )
+  @unless ($users->count())
     <p class="text-muted">{{ trans('users.messages.empty') }}</p>
   @else
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>{{ trans('validation.attributes.name') }}</th>
-          <th>{{ trans('validation.attributes.email') }}</th>
-          <th>{{ trans('validation.attributes.phone') }}</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        @foreach( $users as $user )
-          @include('users.user', [ 'user' => $user ])
-        @endforeach
-      </tbody>
-    </table>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>{{ trans('validation.attributes.name') }}</th>
+            <th>{{ trans('validation.attributes.email') }}</th>
+            <th>{{ trans('validation.attributes.phone') }}</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach( $users as $user )
+            @include('users.user', [ 'user' => $user ])
+          @endforeach
+        </tbody>
+      </table>
+    </div>
   @endif
 @endsection

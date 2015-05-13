@@ -13,5 +13,6 @@ return [
   'users'          => 'Usuários',
   'vehicle_brands' => 'Marcas',
   'vehicle_kinds'  => 'Tipos',
+  'vehicles'       => 'Veículos',
 
 ];
