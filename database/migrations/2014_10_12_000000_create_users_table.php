@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration {
 
 			$table->foreign('state_id')->references('id')->on('states');
 			$table->foreign('city_id')->references('id')->on('cities');
-			$table->foreign('account_id')->references('id')->on('accounts');
+			$table->foreign('account_id')->references('id')->on('accounts')->onDelete('cascade');
 		});
 	}
 

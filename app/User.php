@@ -18,6 +18,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 	protected $hidden = ['password', 'remember_token'];
 
+  public function setPasswordAttribute($value){
+    $this->attributes['password'] = bcrypt($value);
+  }
+
 	public function account()
 	{
 		return $this->belongsTo('App\Account');

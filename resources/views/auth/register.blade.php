@@ -52,7 +52,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     {!! Form::label('city_id', trans('validation.attributes.city_id')) !!}
-                    {!! Form::select('city_id', App\City::optionsForSelect(old('state_id')), null, array('class'=>'form-control')) !!}
+                    {!! Form::select('city_id', App\City::optionsForSelect(Form::getValueAttribute('state_id')), null, array('class'=>'form-control')) !!}
                   </div>
                 </div>
               </div>

@@ -3,7 +3,7 @@
 use App\City;
 use Input;
 
-class CitiesController extends AppController {
+class CitiesController extends Controller {
 
 	public function index()
 	{

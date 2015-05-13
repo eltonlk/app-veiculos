@@ -17,6 +17,10 @@ class Registrar implements RegistrarContract {
 			'password' => 'required|confirmed|min:6',
       'state_id' => 'required',
       'city_id'  => 'required',
+      'zip'      => 'max:255',
+      'district' => 'max:255',
+      'address'  => 'max:255',
+      'phone'    => 'max:255',
 		]);
 	}
 
@@ -44,7 +48,7 @@ class Registrar implements RegistrarContract {
       'address'    => $data['address'],
       'phone'      => $data['phone'],
 			'email'      => $data['email'],
-			'password'   => bcrypt($data['password'])
+			'password'   => $data['password']
 		]);
 
     VehicleKind::create(['name' => 'Carro']);

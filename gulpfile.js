@@ -20,6 +20,8 @@ elixir(function(mix) {
 
   mix.styles([
     'vendor/bootstrap.css',
+    'common/helpers.css',
+    'common/panel.css',
     'common/table.css'
   ], 'public/output/app.css', 'public/css');
 

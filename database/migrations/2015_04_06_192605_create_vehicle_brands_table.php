@@ -15,7 +15,7 @@ class CreateVehicleBrandsTable extends Migration {
 			$table->softDeletes();
 			$table->timestamps();
 
-			$table->foreign('account_id')->references('id')->on('accounts');
+			$table->foreign('account_id')->references('id')->on('accounts')->onDelete('cascade');
 		});
 	}
 

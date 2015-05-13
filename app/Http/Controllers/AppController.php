@@ -9,4 +9,9 @@ class AppController extends Controller {
 
   protected $repository;
 
+  public function __construct()
+  {
+    $this->middleware('auth');
+  }
+
 }

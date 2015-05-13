@@ -13,9 +13,14 @@ return [
   ],
   'messages' => [
     'empty' => 'Nenhuma marca foi encontrada.',
-    'store'   => 'Marca foi adicionada.',
-    'update'  => 'Marca foi atualizada.',
-    'destroy' => 'Marca foi excluída.',
+    'confirm' => [
+      'destroy' => 'Deseja excluír esta marca?',
+    ],
+    'flash' => [
+      'store'   => 'Marca foi adicionada.',
+      'update'  => 'Marca foi atualizada.',
+      'destroy' => 'Marca foi excluída.',
+    ]
   ]
 
 ];

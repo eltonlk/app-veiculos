@@ -3,7 +3,6 @@
 use App\Http\Requests\VehicleKindRequest;
 use App\Repositories\VehicleKindsRepository;
 use App\VehicleKind;
-use Auth;
 use Redirect;
 
 class VehicleKindsController extends AppController {
@@ -32,7 +31,7 @@ class VehicleKindsController extends AppController {
 	{
     $this->repository->create($request->all());
 
-    flash()->success(trans('vehicle_kinds.messages.store'));
+    flash()->success(trans('vehicle_kinds.messages.flash.store'));
 
 		return Redirect::route('vehicle_kinds.index');
 	}
@@ -48,7 +47,7 @@ class VehicleKindsController extends AppController {
 	{
     $this->repository->updateRich($request->all(), $id);
 
-    flash()->success(trans('vehicle_kinds.messages.update'));
+    flash()->success(trans('vehicle_kinds.messages.flash.update'));
 
 		return Redirect::route('vehicle_kinds.index');
 	}
@@ -57,7 +56,7 @@ class VehicleKindsController extends AppController {
 	{
     $this->repository->delete($id);
 
-    flash()->success(trans('vehicle_kinds.messages.destroy'));
+    flash()->success(trans('vehicle_kinds.messages.flash.destroy'));
 
 		return Redirect::route('vehicle_kinds.index');
 	}
