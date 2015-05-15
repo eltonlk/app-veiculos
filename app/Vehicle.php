@@ -16,10 +16,15 @@ class Vehicle extends Model {
 
   protected $dates = ['purchased_in', 'sold'];
 
-  public function setPurchasedIn($date)
-  {
-    $this->attributes['purchased_in'] = Carbon::createFromFormat(trans('date.formats.default'), $date);
-  }
+  // public function purchased_in()
+  // {
+  //   return 'teste';
+  // }
+  //
+  // public function setPurchasedIn($date)
+  // {
+  //   $this->attributes['purchased_in'] = Carbon::createFromFormat(trans('date.formats.default'), $date);
+  // }
 
   public function account()
   {

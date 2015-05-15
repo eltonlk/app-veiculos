@@ -44,6 +44,11 @@ var I18n = {
   translations: {
     'pt-BR': {
       all: 'Todos',
+      date: {
+        formats: {
+          default: 'dd/mm/yyyy'
+        }
+      },
       loading: 'Carregando...',
       prompt: 'Por favor selecione'
     }

@@ -51,13 +51,19 @@
   <div class="col-md-4">
     <div class="form-group">
       {!! Form::label('purchased_in', trans('validation.attributes.purchased_in')) !!}
-      {!! Form::input('date', 'purchased_in', null, array('class'=>'form-control')) !!}
+      <div class="input-group date datepicker">
+        {!! Form::text('purchased_in', null, array('class'=>'form-control')) !!}
+        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+      </div>
     </div>
   </div>
   <div class="col-md-4">
     <div class="form-group">
       {!! Form::label('sold', trans('validation.attributes.sold')) !!}
-      {!! Form::input('date', 'sold', null, array('class'=>'form-control')) !!}
+      <div class="input-group date datepicker">
+        {!! Form::text('sold', null, array('class'=>'form-control')) !!}
+        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+      </div>
     </div>
   </div>
 </div>
