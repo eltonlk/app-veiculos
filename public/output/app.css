@@ -7343,15 +7343,19 @@ body {
 
 /*# sourceMappingURL=base.css.map */
 .form-search {
-  background-color: #fafafa;
+  background: #FFFDE7;
   padding: 15px 15px 1px;
   margin-bottom: 15px;
+  border: 1px solid #FFF9C4;
 }
 .bg-box {
   padding: 15px;
 }
 .datepicker {
   padding: 0;
+}
+.link-to-cancel {
+  color: #cc0000;
 }
 .page-header {
   background-color: #fafafa;

@@ -1,4 +1,4 @@
-{!! Form::open(['url' => route('vehicles.index'), 'method' => 'post', 'class' => 'form-search', 'hidden' => true]) !!}
+{!! Form::search(route('vehicles.index')) !!}
   {!! Form::hidden('search', true) !!}
 
   <div class="row">
@@ -43,7 +43,5 @@
     </div>
   </div>
 
-  <div class="form-group">
-    {!! Form::submit(trans('text.search'), array('class'=>'btn btn-default')) !!}
-  </div>
+  {!! Form::submitSearch(route('vehicles.index')) !!}
 {!! Form::close() !!}
