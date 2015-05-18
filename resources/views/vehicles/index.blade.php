@@ -2,10 +2,13 @@
 
 @section('title', trans('vehicles.index.title'))
 
-@section('content')
-  <a class="btn btn-primary" href="{{ route('vehicles.create') }}">{{ trans('text.create') }}</a>
+@section('nav')
+  {!! LinkHelper::toSearch() !!}
+  {!! LinkHelper::toCreate(route('vehicles.create')) !!}
+@endsection
 
-  <br><br>
+@section('content')
+  @include('vehicles.search')
 
   @unless ($vehicles->count())
     <p class="text-muted">{{ trans('vehicles.messages.empty') }}</p>
@@ -20,8 +23,14 @@
             <th>{{ trans('validation.attributes.model') }}</th>
             <th>{{ trans('validation.attributes.color') }}</th>
             <th>{{ trans('validation.attributes.year') }}</th>
-            <th>{{ trans('validation.attributes.purchased_in') }}</th>
-            <th>{{ trans('validation.attributes.amount') }}</th>
+
+            @if (old('date') == 'sold')
+              <th>{{ trans('validation.attributes.sold') }}</th>
+            @else
+              <th>{{ trans('validation.attributes.purchased_in') }}</th>
+            @endif
+
+            <th class="center">{{ trans('validation.attributes.amount') }}</th>
             <th></th>
           </tr>
         </thead>

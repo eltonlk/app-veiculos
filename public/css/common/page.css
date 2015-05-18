@@ -1,0 +1,19 @@
+.page-header {
+  background-color: #fafafa;
+  margin: -20px 0 20px;
+}
+.page-header nav {
+  float: right;
+  margin-top: -46px;
+}
+@media screen and (max-width: 768px) {
+  .page-header nav {
+    float: none;
+    margin: 0 -15px -9px;
+    background: #f3f3f3;
+    padding: 5px 5px;
+    border-top: solid 1px #eee;
+  }
+}
+
+/*# sourceMappingURL=../common/page.css.map */

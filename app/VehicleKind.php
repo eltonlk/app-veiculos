@@ -22,8 +22,14 @@ class VehicleKind extends Model {
     return $this->belongsTo('App\Account');
   }
 
-  public function scopeOptionsForSelect($query)
+  public function scopeOptionsForSelect($query, $hasPrompt = false)
   {
-    return $query->orderBy('name')->lists('name','id');
+    $prompt = [];
+
+    if ($hasPrompt) {
+      $prompt = ['' => trans('text.all')];
+    }
+
+    return $prompt + $query->orderBy('name')->lists('name','id');
   }
 }

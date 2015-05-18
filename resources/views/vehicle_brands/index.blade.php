@@ -2,11 +2,11 @@
 
 @section('title', trans('vehicle_brands.index.title'))
 
+@section('nav')
+  {!! LinkHelper::toCreate(route('vehicle_brands.create')) !!}
+@endsection
+
 @section('content')
-  <a class="btn btn-primary" href="{{ route('vehicle_brands.create') }}">{{ trans('text.create') }}</a>
-
-  <br><br>
-
   @unless ($vehicle_brands->count())
     <p class="text-muted">{{ trans('vehicle_brands.messages.empty') }}</p>
   @else

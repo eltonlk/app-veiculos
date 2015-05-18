@@ -7336,11 +7336,40 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   margin-right: -5px;
 }
 
+html,
+body {
+  height: 100%;
+}
+
+/*# sourceMappingURL=base.css.map */
+.form-search {
+  background-color: #fafafa;
+  padding: 15px 15px 1px;
+  margin-bottom: 15px;
+}
 .bg-box {
   padding: 15px;
 }
-
-/*# sourceMappingURL=../common/helpers.css.map */
+.datepicker {
+  padding: 0;
+}
+.page-header {
+  background-color: #fafafa;
+  margin: -20px 0 20px;
+}
+.page-header nav {
+  float: right;
+  margin-top: -46px;
+}
+@media screen and (max-width: 768px) {
+  .page-header nav {
+    float: none;
+    margin: 0 -15px -9px;
+    background: #f3f3f3;
+    padding: 5px 5px;
+    border-top: solid 1px #eee;
+  }
+}
 .panel-group-collapse .panel-heading {
   padding: 0;
 }
@@ -7348,11 +7377,14 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   display: block;
   padding: 10px 15px;
 }
-
-/*# sourceMappingURL=../common/panel.css.map */
-td.actions {
+th.center,
+td.center {
+  text-align: center;
+}
+td.actions,
+td.amount {
   text-align: right;
 }
 
-/*# sourceMappingURL=../common/table.css.map */
+/*# sourceMappingURL=common.css.map */
 /*# sourceMappingURL=app.css.map */

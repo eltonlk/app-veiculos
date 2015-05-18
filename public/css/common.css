@@ -1,0 +1,45 @@
+.form-search {
+  background-color: #fafafa;
+  padding: 15px 15px 1px;
+  margin-bottom: 15px;
+}
+.bg-box {
+  padding: 15px;
+}
+.datepicker {
+  padding: 0;
+}
+.page-header {
+  background-color: #fafafa;
+  margin: -20px 0 20px;
+}
+.page-header nav {
+  float: right;
+  margin-top: -46px;
+}
+@media screen and (max-width: 768px) {
+  .page-header nav {
+    float: none;
+    margin: 0 -15px -9px;
+    background: #f3f3f3;
+    padding: 5px 5px;
+    border-top: solid 1px #eee;
+  }
+}
+.panel-group-collapse .panel-heading {
+  padding: 0;
+}
+.panel-group-collapse .panel-heading a {
+  display: block;
+  padding: 10px 15px;
+}
+th.center,
+td.center {
+  text-align: center;
+}
+td.actions,
+td.amount {
+  text-align: right;
+}
+
+/*# sourceMappingURL=common.css.map */

@@ -13,9 +13,11 @@ elixir(function(mix) {
 
   mix.copy('node_modules/jquery/dist/jquery.js', 'public/js/vendor/jquery.js')
     .copy('node_modules/jquery-ujs/src/rails.js', 'public/js/vendor/jquery-ujs.js')
+    .copy('node_modules/jquery-maskmoney/dist/jquery.maskMoney.js', 'public/js/vendor/jquery.maskMoney.js')
     .copy('node_modules/bootstrap/dist/js/bootstrap.js', 'public/js/vendor/bootstrap.js')
     .copy('node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.js', 'public/js/vendor/bootstrap-datepicker.js')
     .copy('node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.pt-BR.min.js', 'public/js/vendor/bootstrap-datepicker-locale.pt-BR.js');
+
 
   mix.styles([
     'vendor/bootstrap.css'
@@ -33,14 +35,14 @@ elixir(function(mix) {
   mix.styles([
     'vendor/bootstrap.css',
     'vendor/bootstrap-datepicker.css',
-    'common/helpers.css',
-    'common/panel.css',
-    'common/table.css'
+    'base.css',
+    'common.css'
   ], 'public/output/app.css', 'public/css');
 
   mix.scripts([
     'vendor/jquery.js',
     'vendor/jquery-ujs.js',
+    'vendor/jquery.maskMoney.js',
     'vendor/bootstrap.js',
     'vendor/bootstrap-datepicker.js',
     'vendor/bootstrap-datepicker-locale.pt-BR.js',

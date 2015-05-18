@@ -12048,6 +12048,16 @@ var I18n = {
           default: 'dd/mm/yyyy'
         }
       },
+      number: {
+        currency: {
+          format: {
+            delimiter: '.',
+            precision: 2,
+            separator: ',',
+            unit: 'R$ '
+          }
+        }
+      },
       loading: 'Carregando...',
       prompt: 'Por favor selecione'
     }

@@ -2,11 +2,11 @@
 
 @section('title', trans('users.index.title'))
 
+@section('nav')
+  {!! LinkHelper::toCreate(route('users.create')) !!}
+@endsection
+
 @section('content')
-  <a class="btn btn-primary" href="{{ route('users.create') }}">{{ trans('text.create') }}</a>
-
-  <br><br>
-
   @unless ($users->count())
     <p class="text-muted">{{ trans('users.messages.empty') }}</p>
   @else

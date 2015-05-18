@@ -5,8 +5,14 @@
   <td>{{ $vehicle->model }}</td>
   <td>{{ $vehicle->color }}</td>
   <td>{{ $vehicle->year }}</td>
-  <td>{{ $vehicle->purchased_in->format(trans('date.formats.default')) }}</td>
-  <td>{{ $vehicle->amount }}</td>
+
+  @if (old('date') == 'sold')
+    <td>{{ I18nHelper::l($vehicle->sold) }}</td>
+  @else
+    <td>{{ I18nHelper::l($vehicle->purchased_in) }}</td>
+  @endif
+
+  <td class="amount">{{ I18nHelper::n2c($vehicle->amount) }}</td>
   <td class="actions">
     <a class="btn btn-default btn-xs" href="{{ route('vehicles.edit', [ 'id' => $vehicle->id ]) }}">
       {{ trans('text.edit') }}

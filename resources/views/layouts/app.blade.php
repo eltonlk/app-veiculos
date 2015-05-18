@@ -62,14 +62,19 @@
   		</div>
   	</nav>
 
-    <div class="container">
-      @include('flash::message')
-
-      <div class="page-header">
+    <div class="page-header">
+      <div class="container">
         <h1>
            @yield('title')
         </h1>
+        <nav>
+          @yield('nav')
+        </nav>
       </div>
+    </div>
+
+    <div class="container">
+      @include('flash::message')
 
       @yield('content')
     </div>

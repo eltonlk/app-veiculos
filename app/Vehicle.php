@@ -1,8 +1,9 @@
 <?php namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
 use App\Traits\TenantableTrait;
+use CurrencyHelper;
+use DateHelper;
 
 class Vehicle extends Model {
 
@@ -16,15 +17,20 @@ class Vehicle extends Model {
 
   protected $dates = ['purchased_in', 'sold'];
 
-  // public function purchased_in()
-  // {
-  //   return 'teste';
-  // }
-  //
-  // public function setPurchasedIn($date)
-  // {
-  //   $this->attributes['purchased_in'] = Carbon::createFromFormat(trans('date.formats.default'), $date);
-  // }
+  public function setAmountAttribute($amount)
+  {
+    $this->attributes['amount'] = CurrencyHelper::delocalize($amount);
+  }
+
+  public function setPurchasedInAttribute($date)
+  {
+    $this->attributes['purchased_in'] = DateHelper::delocalize($date);
+  }
+
+  public function setSoldAttribute($date)
+  {
+    $this->attributes['sold'] = DateHelper::delocalize($date);
+  }
 
   public function account()
   {
@@ -39,6 +45,14 @@ class Vehicle extends Model {
   public function kind()
   {
     return $this->belongsTo('App\VehicleKind', 'kind_id');
+  }
+
+  public function scopedateOptionsForSelect($query)
+  {
+    return [
+      'purchased_in' => trans('validation.attributes.purchased_in'),
+      'sold'         => trans('validation.attributes.sold')
+    ];
   }
 
 }

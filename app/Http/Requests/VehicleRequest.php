@@ -18,9 +18,8 @@ class VehicleRequest extends Request {
       'model'        => 'required',
       'color'        => 'required',
       'year'         => 'required|numeric',
-      'amount'       => 'required|numeric',
-      'purchased_in' => 'required|date',
-      'sold'         => 'date',
+      'amount'       => 'required',
+      'purchased_in' => 'required',
 		];
 	}
 

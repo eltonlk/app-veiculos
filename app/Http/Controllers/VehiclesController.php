@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests\VehicleRequest;
+use App\Repositories\Criteria\Vehicles\Search;
 use App\Repositories\VehiclesRepository;
 use App\Vehicle;
 use Carbon;
@@ -16,7 +17,7 @@ class VehiclesController extends AppController {
 
 	public function index()
 	{
-    $vehicles = $this->repository->all();
+    $vehicles = $this->repository->pushCriteria(new Search())->all();
 
 		return view('vehicles.index', compact('vehicles'));
 	}

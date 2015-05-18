@@ -36,7 +36,7 @@
   <div class="col-md-4">
     <div class="form-group">
       {!! Form::label('year', trans('validation.attributes.year')) !!}
-      {!! Form::text('year', null, array('class'=>'form-control')) !!}
+      {!! Form::selectYear('year', date('Y'), 1950, null, array('class'=>'form-control')) !!}
     </div>
   </div>
 </div>
@@ -45,14 +45,14 @@
   <div class="col-md-4">
     <div class="form-group">
       {!! Form::label('amount', trans('validation.attributes.amount')) !!}
-      {!! Form::text('amount', null, array('class'=>'form-control')) !!}
+      {!! Form::text('amount', I18nHelper::n2c($vehicle->amount), array('class'=>'form-control currency')) !!}
     </div>
   </div>
   <div class="col-md-4">
     <div class="form-group">
       {!! Form::label('purchased_in', trans('validation.attributes.purchased_in')) !!}
       <div class="input-group date datepicker">
-        {!! Form::text('purchased_in', null, array('class'=>'form-control')) !!}
+        {!! Form::text('purchased_in', I18nHelper::l($vehicle->purchased_in), array('class'=>'form-control')) !!}
         <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
       </div>
     </div>
@@ -61,7 +61,7 @@
     <div class="form-group">
       {!! Form::label('sold', trans('validation.attributes.sold')) !!}
       <div class="input-group date datepicker">
-        {!! Form::text('sold', null, array('class'=>'form-control')) !!}
+        {!! Form::text('sold', I18nHelper::l($vehicle->sold), array('class'=>'form-control')) !!}
         <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
       </div>
     </div>
