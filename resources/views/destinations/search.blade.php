@@ -1,6 +1,4 @@
 {!! Form::search(route('destinations.index')) !!}
-  {!! Form::hidden('search', true) !!}
-
   <div class="row">
     <div class="col-md-3">
       <div class="form-group">

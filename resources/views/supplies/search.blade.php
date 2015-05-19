@@ -1,5 +1,4 @@
 {!! Form::search(route('supplies.index')) !!}
-  {!! Form::hidden('search', true) !!}
 
   <div class="row">
     <div class="col-md-3">
