@@ -34,18 +34,6 @@
   			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
   				<ul class="nav navbar-nav">
   					<li><a href="{{ url('/dashboard') }}">{{ trans('app.dashboard') }}</a></li>
-  					<li><a href="{{ url('/destinations') }}">{{ trans('app.destinations') }}</a></li>
-  					<li><a href="{{ url('/maintenances') }}">{{ trans('app.maintenances') }}</a></li>
-  					<li><a href="{{ url('/supplies') }}">{{ trans('app.supplies') }}</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                {{ trans('app.reports') }}
-                <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="{{ url('/teste') }}">{{ trans('app.teste') }}</a></li>
-              </ul>
-            </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                 {{ trans('app.entries') }}
@@ -57,6 +45,9 @@
                 <li><a href="{{ url('/vehicle_brands') }}">{{ trans('app.vehicle_brands') }}</a></li>
               </ul>
             </li>
+  					<li><a href="{{ url('/destinations') }}">{{ trans('app.destinations') }}</a></li>
+  					<li><a href="{{ url('/maintenances') }}">{{ trans('app.maintenances') }}</a></li>
+  					<li><a href="{{ url('/supplies') }}">{{ trans('app.supplies') }}</a></li>
   				</ul>
 
   				<ul class="nav navbar-nav navbar-right">

@@ -71,6 +71,4 @@
   </div>
 </div>
 
-<div class="form-group">
-  {!! Form::submit($submit_text, array('class'=>'btn btn-primary')) !!}
-</div>
+{!! Form::submitModel(route('users.index'), $submit_text) !!}

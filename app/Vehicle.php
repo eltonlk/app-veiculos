@@ -47,6 +47,17 @@ class Vehicle extends Model {
     return $this->belongsTo('App\VehicleKind', 'kind_id');
   }
 
+  public function scopeOptionsForSelect($query, $hasPrompt = false)
+  {
+    $prompt = [];
+
+    if ($hasPrompt) {
+      $prompt = ['' => trans('text.all')];
+    }
+
+    return $prompt + $query->orderBy('name')->lists('name','id');
+  }
+
   public function scopedateOptionsForSelect($query)
   {
     return [

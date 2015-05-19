@@ -45,7 +45,7 @@ var Remote = {
       return;
     }
 
-    var $option = $('<option>');
+    var $option = $('<option value="">');
 
     if (settings.prompt === true) {
       $option.html(I18n.t('prompt'));

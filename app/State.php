@@ -20,9 +20,20 @@ class State extends Model {
     return $this->hasMany('App\City');
   }
 
-  public function scopeOptionsForSelect($query)
+  public function scopeOptionsForSelect($query, $prompt = true, $blank = false)
   {
-    return array('' => trans('text.prompt')) + $query->orderBy('name')->lists('name','id');
+    $prompt = [];
+
+    if ($prompt)
+    {
+      $prompt = array('' => trans('text.prompt'));
+    }
+    else if ($blank)
+    {
+      $prompt = array('' => trans('text.all'));
+    }
+
+    return $prompt + $query->orderBy('name')->lists('name','id');
   }
 
 }

@@ -14,12 +14,8 @@
 
   <td class="amount">{{ I18nHelper::n2c($vehicle->amount) }}</td>
   <td class="actions">
-    <a class="btn btn-default btn-xs" href="{{ route('vehicles.edit', [ 'id' => $vehicle->id ]) }}">
-      {{ trans('text.edit') }}
-    </a>
+    {!! LinkHelper::toEdit(route('vehicles.edit', [ 'id' => $vehicle->id ])) !!}
 
-    <a class="btn btn-danger btn-xs" href="{{ route('vehicles.destroy', [ 'id' => $vehicle->id ]) }}" data-method="delete" data-confirm="{{ trans('vehicles.messages.confirm.destroy') }}">
-      {{ trans('text.destroy') }}
-    </a>
+    {!! LinkHelper::toDestroy(route('vehicles.edit', [ 'id' => $vehicle->id ]), trans('vehicles.messages.confirm.destroy')) !!}
   </td>
 </tr>

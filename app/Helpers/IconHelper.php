@@ -23,8 +23,10 @@ class IconHelper {
   private static function aliases()
   {
     return [
-      'back'   => 'arrow-left',
-      'create' => 'plus',
+      'back'    => 'arrow-left',
+      'create'  => 'plus',
+      'destroy' => 'trash',
+      'edit'    => 'pencil',
     ];
   }
 

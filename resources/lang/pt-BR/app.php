@@ -10,7 +10,6 @@ return [
   'maintenances'   => 'Manutenções',
   'name'           => 'App Veículos',
   'register'       => 'Criar Conta',
-  'reports'        => 'Relatórios',
   'settings'       => 'Preferências',
   'supplies'       => 'Abastecimento',
   'title'          => 'Sistema de Gestão de Veículos.',

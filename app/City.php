@@ -20,10 +20,21 @@ class City extends Model {
     return $this->belongsTo('App\State');
   }
 
-  public function scopeOptionsForSelect($query, $state_id)
+  public function scopeOptionsForSelect($query, $state_id, $prompt = true, $blank = false)
   {
+    $prompt = [];
+
+    if ($prompt)
+    {
+      $prompt = array('' => trans('text.prompt'));
+    }
+    else if ($blank)
+    {
+      $prompt = array('' => trans('text.all'));
+    }
+
     if (isset($state_id) and !empty($state_id)) {
-      return array('' => trans('text.prompt')) + $query->whereStateId($state_id)->orderBy('name')->lists('name','id');
+      return $prompt + $query->whereStateId($state_id)->orderBy('name')->lists('name','id');
     } else {
       return array('' => trans('cities.text.prompt'));
     }

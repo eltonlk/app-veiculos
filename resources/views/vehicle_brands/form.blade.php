@@ -5,6 +5,4 @@
   {!! Form::text('name', null, array('class'=>'form-control')) !!}
 </div>
 
-<div class="form-group">
-  {!! Form::submit($submit_text, array('class'=>'btn btn-primary')) !!}
-</div>
+{!! Form::submitModel(route('vehicle_brands.index'), $submit_text) !!}

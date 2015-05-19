@@ -7357,6 +7357,9 @@ body {
 .link-to-cancel {
   color: #cc0000;
 }
+.link-to-cancel:hover {
+  color: #cc0000;
+}
 .page-header {
   background-color: #fafafa;
   margin: -20px 0 20px;

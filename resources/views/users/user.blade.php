@@ -3,14 +3,10 @@
   <td>{{ $user->email }}</td>
   <td>{{ $user->phone }}</td>
   <td class="actions">
-    <a class="btn btn-default btn-xs" href="{{ route('users.edit', [ 'id' => $user->id ]) }}">
-      {{ trans('text.edit') }}
-    </a>
+    {!! LinkHelper::toEdit(route('users.edit', [ 'id' => $user->id ])) !!}
 
     @if (Auth::user()->id != $user->id)
-      <a class="btn btn-danger btn-xs" href="{{ route('users.destroy', [ 'id' => $user->id ]) }}" data-method="delete" data-confirm="{{ trans('users.messages.confirm.destroy') }}">
-        {{ trans('text.destroy') }}
-      </a>
+      {!! LinkHelper::toDestroy(route('users.edit', [ 'id' => $user->id ]), trans('users.messages.confirm.destroy')) !!}
     @endif
   </td>
 </tr>

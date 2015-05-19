@@ -18,7 +18,6 @@ elixir(function(mix) {
     .copy('node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.js', 'public/js/vendor/bootstrap-datepicker.js')
     .copy('node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.pt-BR.min.js', 'public/js/vendor/bootstrap-datepicker-locale.pt-BR.js');
 
-
   mix.styles([
     'vendor/bootstrap.css'
   ], 'public/output/site.css', 'public/css');
@@ -58,3 +57,4 @@ elixir(function(mix) {
     'public/output/app.js'
   ]);
 });
+
