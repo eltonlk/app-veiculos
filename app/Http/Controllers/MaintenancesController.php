@@ -16,7 +16,7 @@ class MaintenancesController extends AppController {
 
   public function index()
   {
-    $maintenances = $this->repository->pushCriteria(new Search())->all();
+    $maintenances = $this->repository->pushCriteria(new Search())->paginate(20);
 
     return view('maintenances.index', compact('maintenances'));
   }

@@ -13,6 +13,8 @@
   @unless ($destinations->count())
     <p class="text-muted">{{ trans('destinations.messages.empty') }}</p>
   @else
+    {!! $destinations->render() !!}
+
     <div class="table-responsive">
       <table class="table table-striped">
         <thead>
@@ -33,5 +35,7 @@
         </tbody>
       </table>
     </div>
+
+    {!! $destinations->render() !!}
   @endif
 @endsection

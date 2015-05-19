@@ -10,6 +10,8 @@
   @unless ($users->count())
     <p class="text-muted">{{ trans('users.messages.empty') }}</p>
   @else
+    {!! $users->render() !!}
+
     <div class="table-responsive">
       <table class="table table-striped">
         <thead>
@@ -27,5 +29,7 @@
         </tbody>
       </table>
     </div>
+
+    {!! $users->render() !!}
   @endif
 @endsection

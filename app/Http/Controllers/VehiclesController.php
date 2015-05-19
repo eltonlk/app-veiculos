@@ -17,7 +17,7 @@ class VehiclesController extends AppController {
 
 	public function index()
 	{
-    $vehicles = $this->repository->pushCriteria(new Search())->all();
+    $vehicles = $this->repository->pushCriteria(new Search())->paginate(20);
 
 		return view('vehicles.index', compact('vehicles'));
 	}

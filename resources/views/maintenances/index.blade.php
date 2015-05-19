@@ -13,6 +13,8 @@
   @unless ($maintenances->count())
     <p class="text-muted">{{ trans('maintenances.messages.empty') }}</p>
   @else
+    {!! $maintenances->render() !!}
+
     <div class="table-responsive">
       <table class="table table-striped">
         <thead>
@@ -30,5 +32,7 @@
         </tbody>
       </table>
     </div>
+
+    {!! $maintenances->render() !!}
   @endif
 @endsection

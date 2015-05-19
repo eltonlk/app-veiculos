@@ -16,7 +16,7 @@ class UsersController extends AppController {
 
 	public function index()
 	{
-		$users = $this->repository->all();
+		$users = $this->repository->paginate(20);
 
 		return view('users.index', compact('users'));
 	}

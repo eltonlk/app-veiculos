@@ -13,6 +13,8 @@
   @unless ($supplies->count())
     <p class="text-muted">{{ trans('supplies.messages.empty') }}</p>
   @else
+    {!! $supplies->render() !!}
+
     <div class="table-responsive">
       <table class="table table-striped">
         <thead>
@@ -32,5 +34,7 @@
         </tbody>
       </table>
     </div>
+
+    {!! $supplies->render() !!}
   @endif
 @endsection

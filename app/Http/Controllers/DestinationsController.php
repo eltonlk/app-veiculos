@@ -16,7 +16,7 @@ class DestinationsController extends AppController {
 
   public function index()
   {
-    $destinations = $this->repository->pushCriteria(new Search())->all();
+    $destinations = $this->repository->pushCriteria(new Search())->paginate(20);
 
     return view('destinations.index', compact('destinations'));
   }

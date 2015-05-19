@@ -16,7 +16,7 @@ class SuppliesController extends AppController {
 
   public function index()
   {
-    $supplies = $this->repository->pushCriteria(new Search())->all();
+    $supplies = $this->repository->pushCriteria(new Search())->paginate(20);
 
     return view('supplies.index', compact('supplies'));
   }

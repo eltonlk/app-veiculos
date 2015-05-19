@@ -10,6 +10,8 @@
   @unless ($vehicle_brands->count())
     <p class="text-muted">{{ trans('vehicle_brands.messages.empty') }}</p>
   @else
+    {!! $vehicle_brands->render() !!}
+
     <div class="table-responsive">
       <table class="table table-striped">
         <thead>
@@ -25,5 +27,7 @@
         </tbody>
       </table>
     </div>
+
+    {!! $vehicle_brands->render() !!}
   @endif
 @endsection

@@ -15,7 +15,7 @@ class VehicleBrandsController extends AppController {
 
 	public function index()
 	{
-		$vehicle_brands = $this->repository->all();
+		$vehicle_brands = $this->repository->paginate(20);
 
 		return view('vehicle_brands.index', compact('vehicle_brands'));
 	}
