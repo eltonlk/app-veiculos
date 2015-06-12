@@ -4,6 +4,10 @@ return [
 
   'index' => [
     'title' => 'Veículos',
+    'filename' => [
+      'csv' => 'Veiculos.csv',
+      'pdf' => 'Veiculos.pdf',
+    ],
   ],
   'show' => [
     'title' => 'Veículo',

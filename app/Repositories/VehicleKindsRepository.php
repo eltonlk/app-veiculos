@@ -9,4 +9,17 @@ class VehicleKindsRepository extends Repository {
     return 'App\VehicleKind';
   }
 
+  public function toCsv()
+  {
+    $this->applyCriteria();
+
+    $columns = [
+      'name',
+    ];
+
+    return $this->model
+      ->get($columns)
+      ->toArray();
+  }
+
 }

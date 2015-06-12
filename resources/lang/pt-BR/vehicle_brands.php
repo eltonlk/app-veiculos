@@ -4,6 +4,10 @@ return [
 
   'index' => [
     'title' => 'Marcas',
+    'filename' => [
+      'csv' => 'Marcas_de_Veiculos.csv',
+      'pdf' => 'Marcas_de_Veiculos.pdf',
+    ],
   ],
   'create' => [
     'title' => 'Adicionar Marca',

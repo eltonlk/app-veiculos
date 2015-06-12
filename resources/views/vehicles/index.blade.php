@@ -13,7 +13,7 @@
   @unless ($vehicles->count())
     <p class="text-muted">{{ trans('vehicles.messages.empty') }}</p>
   @else
-    {!! $vehicles->render() !!}
+    {!! BulkHelper::render($vehicles, [ 'namespace' => 'vehicles' ]) !!}
 
     <div class="table-responsive">
       <table class="table table-striped">
@@ -26,7 +26,7 @@
             <th>{{ trans('validation.attributes.color') }}</th>
             <th>{{ trans('validation.attributes.year') }}</th>
 
-            @if (old('date') == 'sold')
+            @if (Input::get('date') == 'sold')
               <th>{{ trans('validation.attributes.sold') }}</th>
             @else
               <th>{{ trans('validation.attributes.purchased_in') }}</th>
@@ -44,6 +44,6 @@
       </table>
     </div>
 
-    {!! $vehicles->render() !!}
+    {!! BulkHelper::render($vehicles, [ 'namespace' => 'vehicles' ]) !!}
   @endif
 @endsection

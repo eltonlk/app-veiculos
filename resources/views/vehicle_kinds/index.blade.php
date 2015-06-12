@@ -10,7 +10,7 @@
   @unless ($vehicle_kinds->count())
     <p class="text-muted">{{ trans('vehicle_kinds.messages.empty') }}</p>
   @else
-    {!! $vehicle_kinds->render() !!}
+    {!! BulkHelper::render($vehicle_kinds, [ 'namespace' => 'vehicle_kinds' ]) !!}
 
     <div class="table-responsive">
       <table class="table table-striped">
@@ -28,6 +28,6 @@
       </table>
     </div>
 
-    {!! $vehicle_kinds->render() !!}
+    {!! BulkHelper::render($vehicle_kinds, [ 'namespace' => 'vehicle_kinds' ]) !!}
   @endif
 @endsection

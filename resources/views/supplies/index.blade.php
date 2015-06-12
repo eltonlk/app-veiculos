@@ -13,7 +13,7 @@
   @unless ($supplies->count())
     <p class="text-muted">{{ trans('supplies.messages.empty') }}</p>
   @else
-    {!! $supplies->render() !!}
+    {!! BulkHelper::render($supplies, [ 'namespace' => 'supplies' ]) !!}
 
     <div class="table-responsive">
       <table class="table table-striped">
@@ -35,6 +35,6 @@
       </table>
     </div>
 
-    {!! $supplies->render() !!}
+    {!! BulkHelper::render($supplies, [ 'namespace' => 'supplies' ]) !!}
   @endif
 @endsection

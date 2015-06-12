@@ -13,7 +13,7 @@
   @unless ($maintenances->count())
     <p class="text-muted">{{ trans('maintenances.messages.empty') }}</p>
   @else
-    {!! $maintenances->render() !!}
+    {!! BulkHelper::render($maintenances, [ 'namespace' => 'maintenances' ]) !!}
 
     <div class="table-responsive">
       <table class="table table-striped">
@@ -33,6 +33,6 @@
       </table>
     </div>
 
-    {!! $maintenances->render() !!}
+    {!! BulkHelper::render($maintenances, [ 'namespace' => 'maintenances' ]) !!}
   @endif
 @endsection

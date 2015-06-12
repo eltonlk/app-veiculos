@@ -9,4 +9,17 @@ class VehicleBrandsRepository extends Repository {
     return 'App\VehicleBrand';
   }
 
+  public function toCsv()
+  {
+    $this->applyCriteria();
+
+    $columns = [
+      'name',
+    ];
+
+    return $this->model
+      ->get($columns)
+      ->toArray();
+  }
+
 }

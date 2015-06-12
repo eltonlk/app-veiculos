@@ -4,6 +4,10 @@ return [
 
   'index' => [
     'title' => 'Tipos',
+    'filename' => [
+      'csv' => 'Tipos_de_Veiculos.csv',
+      'pdf' => 'Tipos_de_Veiculos.pdf',
+    ],
   ],
   'create' => [
     'title' => 'Adicionar Tipo',

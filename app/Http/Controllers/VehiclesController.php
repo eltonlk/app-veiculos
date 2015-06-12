@@ -5,6 +5,8 @@ use App\Repositories\Criteria\Vehicles\Search;
 use App\Repositories\VehiclesRepository;
 use App\Vehicle;
 use Carbon;
+use Csv;
+use PDF;
 use Redirect;
 
 class VehiclesController extends AppController {
@@ -71,5 +73,33 @@ class VehiclesController extends AppController {
 
 		return Redirect::route('vehicles.index');
 	}
+
+  public function indexPdf()
+  {
+		$vehicles = $this->repository->pushCriteria(new Search())->all();
+
+    $pdf = PDF::loadView('vehicles.index_pdf', compact('vehicles'));
+
+    return $pdf->download(trans('vehicles.index.filename.pdf'));
+  }
+
+  public function indexCsv()
+  {
+		$vehicles = $this->repository->pushCriteria(new Search())->toCsv();
+
+    Csv::create($vehicles, [
+      trans('validation.attributes.kind'),
+      trans('validation.attributes.brand'),
+      trans('validation.attributes.name'),
+      trans('validation.attributes.model'),
+      trans('validation.attributes.color'),
+      trans('validation.attributes.year'),
+      trans('validation.attributes.purchased_in'),
+      trans('validation.attributes.sold'),
+      trans('validation.attributes.amount'),
+    ]);
+
+    return Csv::download(trans('vehicles.index.filename.csv'));
+  }
 
 }

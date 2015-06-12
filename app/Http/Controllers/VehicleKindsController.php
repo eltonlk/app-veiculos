@@ -3,6 +3,8 @@
 use App\Http\Requests\VehicleKindRequest;
 use App\Repositories\VehicleKindsRepository;
 use App\VehicleKind;
+use Csv;
+use PDF;
 use Redirect;
 
 class VehicleKindsController extends AppController {
@@ -60,5 +62,25 @@ class VehicleKindsController extends AppController {
 
 		return Redirect::route('vehicle_kinds.index');
 	}
+
+  public function indexPdf()
+  {
+		$vehicle_kinds = $this->repository->all();
+
+    $pdf = PDF::loadView('vehicle_kinds.index_pdf', compact('vehicle_kinds'));
+
+    return $pdf->download(trans('vehicle_kinds.index.filename.pdf'));
+  }
+
+  public function indexCsv()
+  {
+		$vehicle_kinds = $this->repository->toCsv();
+
+    Csv::create($vehicle_kinds, [
+      trans('validation.attributes.name'),
+    ]);
+
+    return Csv::download(trans('vehicle_kinds.index.filename.csv'));
+  }
 
 }

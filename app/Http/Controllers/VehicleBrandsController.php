@@ -3,6 +3,8 @@
 use App\Http\Requests\VehicleBrandRequest;
 use App\Repositories\VehicleBrandsRepository;
 use App\VehicleBrand;
+use Csv;
+use PDF;
 use Redirect;
 
 class VehicleBrandsController extends AppController {
@@ -17,7 +19,7 @@ class VehicleBrandsController extends AppController {
 	{
 		$vehicle_brands = $this->repository->paginate(20);
 
-		return view('vehicle_brands.index', compact('vehicle_brands'));
+    return view('vehicle_brands.index', compact('vehicle_brands'));
 	}
 
 	public function create()
@@ -60,5 +62,25 @@ class VehicleBrandsController extends AppController {
 
 		return Redirect::route('vehicle_brands.index');
 	}
+
+  public function indexPdf()
+  {
+		$vehicle_brands = $this->repository->all();
+
+    $pdf = PDF::loadView('vehicle_brands.index_pdf', compact('vehicle_brands'));
+
+    return $pdf->download(trans('vehicle_brands.index.filename.pdf'));
+  }
+
+  public function indexCsv()
+  {
+		$vehicle_brands = $this->repository->toCsv();
+
+    Csv::create($vehicle_brands, [
+      trans('validation.attributes.name'),
+    ]);
+
+    return Csv::download(trans('vehicle_brands.index.filename.csv'));
+  }
 
 }

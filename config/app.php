@@ -150,8 +150,10 @@ return [
     /*
      * Packages Service Providers
      */
+    'Barryvdh\DomPDF\ServiceProvider',
     'Collective\Html\HtmlServiceProvider',
     'Laracasts\Flash\FlashServiceProvider',
+    'Niiyz\Csv\CsvServiceProvider',
 	],
 
 	/*
@@ -204,9 +206,11 @@ return [
      * Packages Aliases
      */
     'Carbon' => 'Carbon\Carbon',
+    'Csv'    => 'Niiyz\Csv\Facades\Csv',
     'Form'   => 'Collective\Html\FormFacade',
     'Html'   => 'Collective\Html\HtmlFacade',
     'Flash'  => 'Laracasts\Flash\Flash',
+    'PDF'    => 'Barryvdh\DomPDF\Facade',
 	],
 
 ];

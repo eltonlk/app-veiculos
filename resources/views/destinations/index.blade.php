@@ -13,7 +13,7 @@
   @unless ($destinations->count())
     <p class="text-muted">{{ trans('destinations.messages.empty') }}</p>
   @else
-    {!! $destinations->render() !!}
+    {!! BulkHelper::render($destinations, [ 'namespace' => 'destinations' ]) !!}
 
     <div class="table-responsive">
       <table class="table table-striped">
@@ -36,6 +36,6 @@
       </table>
     </div>
 
-    {!! $destinations->render() !!}
+    {!! BulkHelper::render($destinations, [ 'namespace' => 'destinations' ]) !!}
   @endif
 @endsection
