@@ -9,25 +9,16 @@
             <h3 class="panel-title">{{ trans('auth.reset.title') }}</h3>
           </div>
   				<div class="panel-body">
-            @include('layouts.validation')
+            @include('errors.validation')
 
             {!! Form::open(array('url' => '/password/reset', 'method' => 'post', 'class' => 'form')) !!}
               {!! Form::hidden('token') !!}
 
-              <div class="form-group">
-                {!! Form::label('email', trans('validation.attributes.email')) !!}
-                {!! Form::email('email', null, array('class'=>'form-control')) !!}
-              </div>
+              {!! Form::inputEmail('email') !!}
 
-              <div class="form-group">
-                {!! Form::label('password', trans('validation.attributes.password')) !!}
-                {!! Form::password('password', array('class'=>'form-control')) !!}
-              </div>
+              {!! Form::inputPassword('password') !!}
 
-              <div class="form-group">
-                {!! Form::label('password_confirmation', trans('validation.attributes.password_confirmation')) !!}
-                {!! Form::password('password_confirmation', array('class'=>'form-control')) !!}
-              </div>
+              {!! Form::inputPassword('password_confirmation') !!}
 
               <div class="form-group">
                 {!! Form::submit(trans('auth.reset.submit'), array('class'=>'btn btn-primary')) !!}

@@ -20,11 +20,11 @@ class City extends Model {
     return $this->belongsTo('App\State');
   }
 
-  public function scopeOptionsForSelect($query, $state_id, $prompt = true, $blank = false)
+  public function scopeOptionsForSelect($query, $state_id, $hasPrompt = true, $blank = false)
   {
     $prompt = [];
 
-    if ($prompt)
+    if ($hasPrompt)
     {
       $prompt = array('' => trans('text.prompt'));
     }

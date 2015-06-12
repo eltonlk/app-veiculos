@@ -9,25 +9,14 @@
             <h3 class="panel-title">{{ trans('auth.login.title') }}</h3>
           </div>
   				<div class="panel-body">
-            @include('layouts.validation')
-
             {!! Form::open(array('url' => '/auth/login', 'method' => 'post', 'class' => 'form')) !!}
-              <div class="form-group">
-                {!! Form::label('email', trans('validation.attributes.email')) !!}
-                {!! Form::email('email', null, array('class'=>'form-control')) !!}
-              </div>
+              {!! Form::errorNotification() !!}
 
-              <div class="form-group">
-                {!! Form::label('password', trans('validation.attributes.password')) !!}
-                {!! Form::password('password', array('class'=>'form-control')) !!}
-              </div>
+              {!! Form::inputEmail('email') !!}
 
-              <div class="form-group">
-                <label>
-                  {!! Form::checkbox('remember', 1, false) !!}
-                  {!! trans('validation.attributes.remember') !!}
-                </label>
-              </div>
+              {!! Form::inputPassword('password') !!}
+
+              {!! Form::inputBoolean('remember') !!}
 
               <div class="form-group">
                 {!! Form::submit(trans('text.log_in'), array('class'=>'btn btn-primary')) !!}

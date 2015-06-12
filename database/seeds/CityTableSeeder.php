@@ -10,7 +10,7 @@ class CityTableSeeder extends Seeder {
   {
     DB::statement("TRUNCATE TABLE cities CASCADE");
 
-    $reader = Reader::createFromPath(base_path() . '/Base_de_dados_dos_municipios.csv');
+    $reader = Reader::createFromPath(base_path() . '/database/municipios.csv');
 
     foreach($reader as $index => $row)
     {

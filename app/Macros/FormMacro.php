@@ -29,6 +29,17 @@ Form::macro('formGroup', function($name, $input) {
   '</div>';
 });
 
+Form::macro('formGroupCheckbox', function($name, $input) {
+  return '<div class="form-group' . (($this->session->has('errors') and $this->session->get('errors')->has($name)) ? ' has-error' : '' ) . '">' .
+    '<label>' .
+      $input .
+      ' ' .
+      trans('validation.attributes.' . $name) .
+    '</label>' .
+    Form::getInputErrors($name) .
+  '</div>';
+});
+
 Form::macro('inputString', function($name) {
   $input = Form::text($name, null, array('class'=>'form-control'));
 
@@ -63,6 +74,12 @@ Form::macro('inputPassword', function($name) {
   $input = Form::password($name, array('class'=>'form-control'));
 
   return Form::formGroup($name, $input);
+});
+
+Form::macro('inputBoolean', function($name) {
+  $input = Form::checkbox($name, 1, false);
+
+  return Form::formGroupCheckbox($name, $input);
 });
 
 Form::macro('inputDatepicker', function($name) {

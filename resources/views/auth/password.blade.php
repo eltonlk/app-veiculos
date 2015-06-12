@@ -15,13 +15,10 @@
   						</div>
   					@endif
 
-            @include('layouts.validation')
-
             {!! Form::open(array('url' => '/password/email', 'method' => 'post', 'class' => 'form')) !!}
-              <div class="form-group">
-                {!! Form::label('email', trans('validation.attributes.email')) !!}
-                {!! Form::email('email', null, array('class'=>'form-control')) !!}
-              </div>
+              {!! Form::errorNotification() !!}
+
+              {!! Form::inputEmail('email') !!}
 
               <div class="form-group">
                 {!! Form::submit(trans('auth.password.submit'), array('class'=>'btn btn-primary')) !!}
