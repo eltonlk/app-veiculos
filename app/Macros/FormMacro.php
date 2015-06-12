@@ -41,31 +41,37 @@ Form::macro('formGroupCheckbox', function($name, $input) {
 });
 
 Form::macro('inputString', function($name) {
-  $input = Form::text($name, null, array('class'=>'form-control'));
+  $input = Form::text($name, Input::get($name), array('class'=>'form-control'));
 
   return Form::formGroup($name, $input);
 });
 
 Form::macro('inputText', function($name) {
-  $input = Form::textarea($name, null, array('class'=>'form-control'));
+  $input = Form::textarea($name, Input::get($name), array('class'=>'form-control'));
 
   return Form::formGroup($name, $input);
 });
 
 Form::macro('inputCollection', function($name, $collection) {
-  $input = Form::select($name, $collection, null, array('class'=>'form-control'));
+  $input = Form::select($name, $collection, Input::get($name), array('class'=>'form-control'));
 
   return Form::formGroup($name, $input);
 });
 
 Form::macro('inputEmail', function($name) {
-  $input = Form::email($name, null, array('class'=>'form-control'));
+  $input = Form::email($name, Input::get($name), array('class'=>'form-control'));
 
   return Form::formGroup($name, $input);
 });
 
 Form::macro('inputCurrency', function($name) {
-  $input = Form::text($name, I18nHelper::n2c($this->model->{$name}), array('class'=>'form-control currency'));
+  $value = Input::get($name);
+
+  if ($value == null and $this->model) {
+    $value = $this->model->{$name};
+  }
+
+  $input = Form::text($name, I18nHelper::n2c($value), array('class'=>'form-control currency'));
 
   return Form::formGroup($name, $input);
 });
@@ -77,15 +83,15 @@ Form::macro('inputPassword', function($name) {
 });
 
 Form::macro('inputBoolean', function($name) {
-  $input = Form::checkbox($name, 1, false);
+  $input = Form::checkbox($name, 1, Input::get($name));
 
   return Form::formGroupCheckbox($name, $input);
 });
 
 Form::macro('inputDatepicker', function($name) {
-  $value = '';
+  $value = Input::get($name);
 
-  if ($this->model) {
+  if ($value == null and $this->model) {
     $value = I18nHelper::l($this->model->{$name});
   }
 
