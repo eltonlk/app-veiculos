@@ -8,6 +8,6 @@
 
 @section('content')
   {!! Form::model($destination, ['route' => ['destinations.update', $destination->id], 'method' => 'put', 'class' => 'form']) !!}
-    @include('destinations.form', [ 'submit_text' => trans('text.update') ])
+    @include('destinations.form')
   {!! Form::close() !!}
 @endsection

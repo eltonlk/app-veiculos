@@ -1,43 +1,22 @@
 {!! Form::search(route('vehicles.index')) !!}
   <div class="row">
     <div class="col-md-3">
-      <div class="form-group">
-        {!! Form::label('date', trans('validation.attributes.date')) !!}
-        {!! Form::select('date', App\Vehicle::dateOptionsForSelect(), null, array('class'=>'form-control')) !!}
-      </div>
+      {!! Form::inputCollection('date', App\Vehicle::dateOptionsForSelect()) !!}
     </div>
     <div class="col-md-3">
-      <div class="form-group">
-        {!! Form::label('date_from', trans('validation.attributes.date_from')) !!}
-        <div class="input-group date datepicker">
-          {!! Form::text('date_from', null, array('class'=>'form-control')) !!}
-          <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-        </div>
-      </div>
+      {!! Form::inputDatepicker('date_from') !!}
     </div>
     <div class="col-md-3">
-      <div class="form-group">
-        {!! Form::label('date_to', trans('validation.attributes.date_to')) !!}
-        <div class="input-group date datepicker">
-          {!! Form::text('date_to', null, array('class'=>'form-control')) !!}
-          <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-        </div>
-      </div>
+      {!! Form::inputDatepicker('date_to') !!}
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-4">
-      <div class="form-group">
-        {!! Form::label('kind_id', trans('validation.attributes.kind_id')) !!}
-        {!! Form::select('kind_id', App\VehicleKind::optionsForSelect(true), null, array('class'=>'form-control')) !!}
-      </div>
+      {!! Form::inputCollection('kind_id', App\VehicleKind::optionsForSelect(true)) !!}
     </div>
     <div class="col-md-4">
-      <div class="form-group">
-        {!! Form::label('brand_id', trans('validation.attributes.brand_id')) !!}
-        {!! Form::select('brand_id', App\VehicleBrand::optionsForSelect(true), null, array('class'=>'form-control')) !!}
-      </div>
+      {!! Form::inputCollection('brand_id', App\VehicleBrand::optionsForSelect(true)) !!}
     </div>
   </div>
 

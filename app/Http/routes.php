@@ -28,4 +28,3 @@ Route::resource('vehicles', 'VehiclesController');
 Route::resource('vehicle_brands', 'VehicleBrandsController', [ 'except' => 'show' ]);
 
 Route::resource('vehicle_kinds', 'VehicleKindsController', [ 'except' => 'show' ]);
-

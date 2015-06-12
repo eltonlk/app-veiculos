@@ -19,6 +19,8 @@ return [
 		realpath(__DIR__.'/../app/Providers/BusServiceProvider.php'),
 		realpath(__DIR__.'/../app/Providers/ConfigServiceProvider.php'),
 		realpath(__DIR__.'/../app/Providers/EventServiceProvider.php'),
+		realpath(__DIR__.'/../app/Providers/HelpersServiceProvider.php'),
+		realpath(__DIR__.'/../app/Providers/MacrosServiceProvider.php'),
 		realpath(__DIR__.'/../app/Providers/RouteServiceProvider.php'),
 
 	],

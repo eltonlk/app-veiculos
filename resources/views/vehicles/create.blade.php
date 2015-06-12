@@ -8,6 +8,6 @@
 
 @section('content')
   {!! Form::model($vehicle, ['route' => ['vehicles.store'], 'class' => 'form']) !!}
-    @include('vehicles.form', [ 'submit_text' => trans('text.create') ])
+    @include('vehicles.form')
   {!! Form::close() !!}
 @endsection
