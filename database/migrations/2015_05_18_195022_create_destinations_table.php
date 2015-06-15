@@ -11,6 +11,8 @@ class CreateDestinationsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('vehicle_id')->unsigned();
+      $table->datetime('output_in');
+      $table->datetime('returned_in')->nullable();
 			$table->string('address');
 			$table->string('district');
 			$table->integer('state_id')->unsigned();

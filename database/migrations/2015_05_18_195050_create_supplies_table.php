@@ -11,6 +11,7 @@ class CreateSuppliesTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('vehicle_id')->unsigned();
+      $table->datetime('realized_at');
 			$table->float('liters');
 			$table->float('mileage');
 			$table->decimal('amount', 13, 2)->default(0);

@@ -9,7 +9,7 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>{{ trans('validation.attributes.created_at') }}</th>
+          <th>{{ trans('validation.attributes.realized_at') }}</th>
           <th>{{ trans('validation.attributes.vehicle') }}</th>
           <th>{{ trans('validation.attributes.amount') }}</th>
         </tr>
@@ -17,7 +17,7 @@
       <tbody>
         @foreach( $maintenances as $maintenance )
           <tr>
-            <td>{{ I18nHelper::l($maintenance->created_at) }}</td>
+            <td>{{ I18nHelper::l($maintenance->realized_at) }}</td>
             <td>{{ $maintenance->vehicle->name }}</td>
             <td style="text-align:right;">{{ I18nHelper::n2c($maintenance->amount) }}</td>
           </tr>

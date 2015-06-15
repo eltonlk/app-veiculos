@@ -11,6 +11,7 @@ class CreateMaintenancesTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('vehicle_id')->unsigned();
+      $table->datetime('realized_at');
 			$table->text('description');
 			$table->decimal('amount', 13, 2)->default(0);
 			$table->integer('account_id')->unsigned();

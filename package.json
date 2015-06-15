@@ -7,6 +7,7 @@
     "bootstrap-datepicker": "1.4.*",
     "jquery": "2.1.*",
     "jquery-ujs": "1.0.*",
-    "jquery-maskmoney": "3.0.*"
+    "jquery-maskmoney": "3.0.*",
+    "chart.js": "1.0.*"
   }
 }

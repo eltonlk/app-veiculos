@@ -1,5 +1,5 @@
 <tr>
-  <td>{{ I18nHelper::l($maintenance->created_at) }}</td>
+  <td>{{ I18nHelper::l($maintenance->realized_at) }}</td>
   <td>{{ $maintenance->vehicle->name }}</td>
   <td class="amount">{{ I18nHelper::n2c($maintenance->amount) }}</td>
   <td class="actions">

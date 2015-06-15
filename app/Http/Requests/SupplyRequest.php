@@ -13,6 +13,7 @@ class SupplyRequest extends Request {
   {
     return [
       'vehicle_id'  => 'required',
+      'realized_at' => 'required',
       'liters'      => 'required',
       'mileage'     => 'required',
       'amount'      => 'required',

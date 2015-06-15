@@ -13,6 +13,7 @@ class DestinationRequest extends Request {
   {
     return [
       'vehicle_id' => 'required',
+      'output_in'  => 'required',
       'address'    => 'required|max:255',
       'district'   => 'required|max:255',
       'state_id'   => 'required',

@@ -1,5 +1,6 @@
 <tr>
-  <td>{{ I18nHelper::l($destination->created_at) }}</td>
+  <td>{{ I18nHelper::l($destination->output_in) }}</td>
+  <td>{{ I18nHelper::l($destination->returned_in) }}</td>
   <td>{{ $destination->vehicle->name }}</td>
   <td>{{ $destination->address }}</td>
   <td>{{ $destination->district }}</td>

@@ -1,5 +1,5 @@
 <tr>
-  <td>{{ I18nHelper::l($supply->created_at) }}</td>
+  <td>{{ I18nHelper::l($supply->realized_at) }}</td>
   <td>{{ $supply->vehicle->name }}</td>
   <td>{{ $supply->liters }}</td>
   <td>{{ $supply->mileage }}</td>

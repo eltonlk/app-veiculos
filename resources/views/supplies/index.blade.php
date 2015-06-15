@@ -19,7 +19,7 @@
       <table class="table table-striped">
         <thead>
           <tr>
-            <th>{{ trans('validation.attributes.created_at') }}</th>
+            <th>{{ trans('validation.attributes.realized_at') }}</th>
             <th>{{ trans('validation.attributes.vehicle') }}</th>
             <th>{{ trans('validation.attributes.liters') }}</th>
             <th>{{ trans('validation.attributes.mileage') }}</th>

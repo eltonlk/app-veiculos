@@ -4,6 +4,7 @@ use App\Http\Requests\DestinationRequest;
 use App\Repositories\Criteria\Destinations\Search;
 use App\Repositories\DestinationsRepository;
 use App\Destination;
+use Carbon;
 use Csv;
 use PDF;
 use Redirect;
@@ -25,7 +26,9 @@ class DestinationsController extends AppController {
 
   public function create()
   {
-    $destination = new Destination();
+    $destination = new Destination([
+		  'output_in' => Carbon::now(),
+		]);
 
     return view('destinations.create', compact('destination'));
   }
@@ -78,7 +81,8 @@ class DestinationsController extends AppController {
 		$destinations = $this->repository->pushCriteria(new Search())->toCsv();
 
     Csv::create($destinations, [
-      trans('validation.attributes.created_at'),
+      trans('validation.attributes.output_in'),
+      trans('validation.attributes.returned_in'),
       trans('validation.attributes.vehicle'),
       trans('validation.attributes.address'),
       trans('validation.attributes.district'),

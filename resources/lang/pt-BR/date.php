@@ -2,6 +2,7 @@
 
 return [
   'formats' => [
-    'default'    => 'd/m/Y',
+    'default'  => 'd/m/Y',
+    'datetime' => 'd/m/Y',
   ]
 ];

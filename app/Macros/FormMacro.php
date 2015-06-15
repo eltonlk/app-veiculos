@@ -103,6 +103,21 @@ Form::macro('inputDatepicker', function($name) {
   return Form::formGroup($name, $input);
 });
 
+Form::macro('inputDateTimepicker', function($name) {
+  $value = Input::get($name);
+
+  if ($value == null and $this->model) {
+    $value = I18nHelper::l($this->model->{$name}, 'datetime');
+  }
+
+  $input = '<div class="input-group date datepicker">' .
+    Form::text($name, $value, array('class'=>'form-control')) .
+    '<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>' .
+    '</div>';
+
+  return Form::formGroup($name, $input);
+});
+
 Form::macro('submitModel', function($url) {
   $text = trans('text.create');
 

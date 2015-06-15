@@ -4,6 +4,7 @@ use App\Http\Requests\MaintenanceRequest;
 use App\Repositories\Criteria\Maintenances\Search;
 use App\Repositories\MaintenancesRepository;
 use App\Maintenance;
+use Carbon;
 use Csv;
 use PDF;
 use Redirect;
@@ -25,7 +26,9 @@ class MaintenancesController extends AppController {
 
   public function create()
   {
-    $maintenance = new Maintenance();
+    $maintenance = new Maintenance([
+		  'realized_at' => Carbon::now(),
+		]);
 
     return view('maintenances.create', compact('maintenance'));
   }
@@ -78,7 +81,7 @@ class MaintenancesController extends AppController {
 		$maintenances = $this->repository->pushCriteria(new Search())->toCsv();
 
     Csv::create($maintenances, [
-      trans('validation.attributes.created_at'),
+      trans('validation.attributes.realized_at'),
       trans('validation.attributes.vehicle'),
       trans('validation.attributes.amount'),
     ]);

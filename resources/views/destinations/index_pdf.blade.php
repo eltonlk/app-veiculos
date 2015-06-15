@@ -9,7 +9,8 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>{{ trans('validation.attributes.created_at') }}</th>
+          <th>{{ trans('validation.attributes.output_in') }}</th>
+          <th>{{ trans('validation.attributes.returned_in') }}</th>
           <th>{{ trans('validation.attributes.vehicle') }}</th>
           <th>{{ trans('validation.attributes.address') }}</th>
           <th>{{ trans('validation.attributes.district') }}</th>
@@ -20,7 +21,8 @@
       <tbody>
         @foreach( $destinations as $destination )
           <tr>
-            <td>{{ I18nHelper::l($destination->created_at) }}</td>
+            <td>{{ I18nHelper::l($destination->output_in) }}</td>
+            <td>{{ I18nHelper::l($destination->returned_in) }}</td>
             <td>{{ $destination->vehicle->name }}</td>
             <td>{{ $destination->address }}</td>
             <td>{{ $destination->district }}</td>

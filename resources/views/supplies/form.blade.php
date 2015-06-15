@@ -4,6 +4,9 @@
   <div class="col-md-6">
     {!! Form::inputCollection('vehicle_id', App\Vehicle::optionsForSelect()) !!}
   </div>
+  <div class="col-md-3">
+    {!! Form::inputDateTimepicker('realized_at') !!}
+  </div>
 </div>
 
 <div class="row">

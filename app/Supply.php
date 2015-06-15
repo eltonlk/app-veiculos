@@ -3,6 +3,7 @@
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\TenantableTrait;
 use CurrencyHelper;
+use DateTimeHelper;
 
 class Supply extends Model {
 
@@ -10,11 +11,16 @@ class Supply extends Model {
 
   protected $table = 'supplies';
 
-  protected $fillable = ['vehicle_id', 'liters', 'mileage', 'amount'];
+  protected $fillable = ['vehicle_id', 'realized_at', 'liters', 'mileage', 'amount'];
 
   protected $hidden = [];
 
-  protected $dates = [];
+  protected $dates = ['realized_at'];
+
+  public function setRealizedAtAttribute($datetime)
+  {
+    $this->attributes['realized_at'] = DateTimeHelper::delocalize($datetime);
+  }
 
   public function setAmountAttribute($amount)
   {

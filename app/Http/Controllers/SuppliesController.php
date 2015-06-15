@@ -4,6 +4,7 @@ use App\Http\Requests\SupplyRequest;
 use App\Repositories\Criteria\Supplies\Search;
 use App\Repositories\SuppliesRepository;
 use App\Supply;
+use Carbon;
 use Csv;
 use PDF;
 use Redirect;
@@ -25,7 +26,9 @@ class SuppliesController extends AppController {
 
   public function create()
   {
-    $supply = new Supply();
+    $supply = new Supply([
+		  'realized_at' => Carbon::now(),
+		]);
 
     return view('supplies.create', compact('supply'));
   }
@@ -78,7 +81,7 @@ class SuppliesController extends AppController {
 		$supplies = $this->repository->pushCriteria(new Search())->toCsv();
 
     Csv::create($supplies, [
-      trans('validation.attributes.created_at'),
+      trans('validation.attributes.realized_at'),
       trans('validation.attributes.vehicle'),
       trans('validation.attributes.liters'),
       trans('validation.attributes.mileage'),

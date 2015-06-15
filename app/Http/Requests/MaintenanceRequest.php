@@ -13,6 +13,7 @@ class MaintenanceRequest extends Request {
   {
     return [
       'vehicle_id'  => 'required',
+      'realized_at' => 'required',
       'amount'      => 'required',
       'description' => 'required',
     ];

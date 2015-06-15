@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\TenantableTrait;
-use CurrencyHelper;
+use DateTimeHelper;
 
 class Destination extends Model {
 
@@ -10,11 +10,21 @@ class Destination extends Model {
 
   protected $table = 'destinations';
 
-  protected $fillable = ['vehicle_id', 'address', 'district', 'state_id', 'city_id', 'description'];
+  protected $fillable = ['vehicle_id', 'output_in', 'returned_in', 'address', 'district', 'state_id', 'city_id', 'description'];
 
   protected $hidden = [];
 
-  protected $dates = [];
+  protected $dates = ['output_in', 'returned_in'];
+
+  public function setOutputInAttribute($datetime)
+  {
+    $this->attributes['output_in'] = DateTimeHelper::delocalize($datetime);
+  }
+
+  public function setReturnedInAttribute($datetime)
+  {
+    $this->attributes['returned_in'] = DateTimeHelper::delocalize($datetime);
+  }
 
   public function account()
   {
