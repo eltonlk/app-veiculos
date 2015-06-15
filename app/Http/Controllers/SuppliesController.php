@@ -4,6 +4,8 @@ use App\Http\Requests\SupplyRequest;
 use App\Repositories\Criteria\Supplies\Search;
 use App\Repositories\SuppliesRepository;
 use App\Supply;
+use Csv;
+use PDF;
 use Redirect;
 
 class SuppliesController extends AppController {
@@ -60,6 +62,30 @@ class SuppliesController extends AppController {
     flash()->success(trans('supplies.messages.flash.destroy'));
 
     return Redirect::route('supplies.index');
+  }
+
+  public function indexPdf()
+  {
+		$supplies = $this->repository->pushCriteria(new Search())->all();
+
+    $pdf = PDF::loadView('supplies.index_pdf', compact('supplies'));
+
+    return $pdf->download(trans('supplies.index.filename.pdf'));
+  }
+
+  public function indexCsv()
+  {
+		$supplies = $this->repository->pushCriteria(new Search())->toCsv();
+
+    Csv::create($supplies, [
+      trans('validation.attributes.created_at'),
+      trans('validation.attributes.vehicle'),
+      trans('validation.attributes.liters'),
+      trans('validation.attributes.mileage'),
+      trans('validation.attributes.amount'),
+    ]);
+
+    return Csv::download(trans('supplies.index.filename.csv'));
   }
 
 }

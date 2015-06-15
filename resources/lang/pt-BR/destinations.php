@@ -4,6 +4,10 @@ return [
 
   'index' => [
     'title' => 'Destinos',
+    'filename' => [
+      'csv' => 'Destinos.csv',
+      'pdf' => 'Destinos.pdf',
+    ],
   ],
   'create' => [
     'title' => 'Adicionar Destino',

@@ -4,6 +4,8 @@ use App\Http\Requests\MaintenanceRequest;
 use App\Repositories\Criteria\Maintenances\Search;
 use App\Repositories\MaintenancesRepository;
 use App\Maintenance;
+use Csv;
+use PDF;
 use Redirect;
 
 class MaintenancesController extends AppController {
@@ -60,6 +62,28 @@ class MaintenancesController extends AppController {
     flash()->success(trans('maintenances.messages.flash.destroy'));
 
     return Redirect::route('maintenances.index');
+  }
+
+  public function indexPdf()
+  {
+		$maintenances = $this->repository->pushCriteria(new Search())->all();
+
+    $pdf = PDF::loadView('maintenances.index_pdf', compact('maintenances'));
+
+    return $pdf->download(trans('maintenances.index.filename.pdf'));
+  }
+
+  public function indexCsv()
+  {
+		$maintenances = $this->repository->pushCriteria(new Search())->toCsv();
+
+    Csv::create($maintenances, [
+      trans('validation.attributes.created_at'),
+      trans('validation.attributes.vehicle'),
+      trans('validation.attributes.amount'),
+    ]);
+
+    return Csv::download(trans('maintenances.index.filename.csv'));
   }
 
 }

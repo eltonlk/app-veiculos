@@ -4,6 +4,10 @@ return [
 
   'index' => [
     'title' => 'Manuteções',
+    'filename' => [
+      'csv' => 'Manuteções.csv',
+      'pdf' => 'Manuteções.pdf',
+    ],
   ],
   'create' => [
     'title' => 'Adicionar Manutenção',

@@ -4,6 +4,8 @@ use App\Http\Requests\DestinationRequest;
 use App\Repositories\Criteria\Destinations\Search;
 use App\Repositories\DestinationsRepository;
 use App\Destination;
+use Csv;
+use PDF;
 use Redirect;
 
 class DestinationsController extends AppController {
@@ -60,6 +62,31 @@ class DestinationsController extends AppController {
     flash()->success(trans('destinations.messages.flash.destroy'));
 
     return Redirect::route('destinations.index');
+  }
+
+  public function indexPdf()
+  {
+		$destinations = $this->repository->pushCriteria(new Search())->all();
+
+    $pdf = PDF::loadView('destinations.index_pdf', compact('destinations'));
+
+    return $pdf->download(trans('destinations.index.filename.pdf'));
+  }
+
+  public function indexCsv()
+  {
+		$destinations = $this->repository->pushCriteria(new Search())->toCsv();
+
+    Csv::create($destinations, [
+      trans('validation.attributes.created_at'),
+      trans('validation.attributes.vehicle'),
+      trans('validation.attributes.address'),
+      trans('validation.attributes.district'),
+      trans('validation.attributes.city'),
+      trans('validation.attributes.state'),
+    ]);
+
+    return Csv::download(trans('destinations.index.filename.csv'));
   }
 
 }

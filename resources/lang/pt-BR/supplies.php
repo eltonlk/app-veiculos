@@ -4,6 +4,10 @@ return [
 
   'index' => [
     'title' => 'Abastecimentos',
+    'filename' => [
+      'csv' => 'Abastecimentos.csv',
+      'pdf' => 'Abastecimentos.pdf',
+    ],
   ],
   'create' => [
     'title' => 'Adicionar Abastecimento',
