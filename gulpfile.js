@@ -16,7 +16,8 @@ elixir(function(mix) {
     .copy('node_modules/jquery-maskmoney/dist/jquery.maskMoney.js', 'public/js/vendor/jquery.maskMoney.js')
     .copy('node_modules/bootstrap/dist/js/bootstrap.js', 'public/js/vendor/bootstrap.js')
     .copy('node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.js', 'public/js/vendor/bootstrap-datepicker.js')
-    .copy('node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.pt-BR.min.js', 'public/js/vendor/bootstrap-datepicker-locale.pt-BR.js');
+    .copy('node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.pt-BR.min.js', 'public/js/vendor/bootstrap-datepicker-locale.pt-BR.js')
+    .copy('node_modules/chart.js/Chart.js', 'public/js/vendor/chart.js');
 
   mix.styles([
     'vendor/bootstrap.css'
@@ -45,6 +46,7 @@ elixir(function(mix) {
     'vendor/bootstrap.js',
     'vendor/bootstrap-datepicker.js',
     'vendor/bootstrap-datepicker-locale.pt-BR.js',
+    'vendor/chart.js',
     'common/i18n.js',
     'common/remote.js',
     'app.js'

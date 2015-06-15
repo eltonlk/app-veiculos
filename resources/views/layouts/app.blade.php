@@ -83,5 +83,7 @@
     </div>
 
   	<script src="{{ elixir('output/app.js') }}"></script>
+
+    @yield('javascript')
   </body>
 </html>
