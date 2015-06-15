@@ -40,3 +40,13 @@ Route::get('vehicle_brands.pdf', [ 'as' => 'vehicle_brands.index.pdf', 'uses' =>
 Route::resource('vehicle_kinds', 'VehicleKindsController', [ 'except' => 'show' ]);
 Route::get('vehicle_kinds.csv', [ 'as' => 'vehicle_kinds.index.csv', 'uses' => 'VehicleKindsController@indexCsv' ]);
 Route::get('vehicle_kinds.pdf', [ 'as' => 'vehicle_kinds.index.pdf', 'uses' => 'VehicleKindsController@indexPdf' ]);
+
+Route::group([ 'prefix' => 'api' ], function() {
+  Route::group([ 'prefix' => 'v1' ], function() {
+    Route::resource('vehicles', 'Api\V1\VehiclesController', [ 'only' => [ 'index', 'show', 'store', 'update', 'destroy' ] ]);
+
+    Route::resource('vehicle_brands', 'Api\V1\VehicleBrandsController', [ 'only' => [ 'index', 'show', 'store', 'update', 'destroy' ] ]);
+
+    Route::resource('vehicle_kinds', 'Api\V1\VehicleKindsController', [ 'only' => [ 'index', 'show', 'store', 'update', 'destroy' ] ]);
+  });
+});
